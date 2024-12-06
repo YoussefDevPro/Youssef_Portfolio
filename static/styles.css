@@ -1,0 +1,84 @@
+body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Positionne le terminal en haut de la page */
+    background-color: #000;
+    color: #00ff00;
+}
+
+.terminal {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#main-image {
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 20px;
+    border-radius: 100%;
+    border: #fff solid 2px;
+}
+
+.rotating {
+    animation: rotate 2s linear infinite;
+    max-width: 50px;
+    max-height: 50px;
+    height: auto;
+    border-radius: 100%;
+    margin-bottom: 20px;
+    filter: brightness(0) saturate(100%) invert(100%);
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-text {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    padding: 20px;
+}
+
+#main-content.visible {
+    opacity: 1;
+}
+
+/* Effet de flou sur disparition */
+.blur {
+    filter: blur(5px);
+}
