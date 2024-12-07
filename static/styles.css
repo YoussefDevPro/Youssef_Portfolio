@@ -193,3 +193,41 @@ body {
 #description p {
     margin: 10px 0; /* Espacement entre les paragraphes */
 }
+
+/* Nouveau contenu par défaut */
+#default-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+#default-content p {
+    margin: 10px 0;
+}
+
+#iframe-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    width: 100%; /* Prend toute la largeur disponible */
+    height: 500px; /* Définir une hauteur pour l'iframe */
+    margin: 20px 0; /* Marge autour de l'iframe pour ne pas toucher les bords */
+}
+
+#iframe-container iframe {
+    width: 80%; /* L'iframe prend 80% de la largeur de son conteneur */
+    height: 100%; /* L'iframe prend toute la hauteur de son conteneur */
+    border: none; /* Supprime la bordure par défaut de l'iframe */
+    border-radius: 10px; /* Arrondir les coins de l'iframe si nécessaire */
+}
+
+
+body, html {
+    overflow: hidden;
+    height: 100%;
+}

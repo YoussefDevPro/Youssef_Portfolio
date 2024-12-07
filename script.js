@@ -14,6 +14,7 @@ window.onload = () => {
     let messageIndex = 0; // Initialisation de l'index des messages
     let currentInterval = null;
 
+    // Fonction de typewriting pour les messages du terminal
     function typeMessage(message, index, callback) {
         let i = 0;
         if (currentInterval) clearInterval(currentInterval);
@@ -28,6 +29,7 @@ window.onload = () => {
         }, 100);
     }
 
+    // Masquer le terminal après l'affichage des messages
     function hideTerminal() {
         terminal.style.transition = "opacity 1s ease-in-out";
         terminal.style.opacity = 0; // Disparition progressive du terminal
@@ -37,7 +39,7 @@ window.onload = () => {
         }, 1000);
     }
 
-    // Simuler l'affichage des messages dans le terminal
+    // Afficher les messages du terminal avec délai
     function showTerminalMessages() {
         if (messageIndex < terminalMessages.length) {
             terminalText.textContent = '';
@@ -76,4 +78,37 @@ window.onload = () => {
 
     // Démarrer l'affichage du terminal
     showTerminalMessages();
+
+    // Fonction pour changer le contenu selon le bouton cliqué
+    function changeContent(contentType) {
+        let contentContainer = document.getElementById('description');
+        let iframeContainer = document.getElementById('iframe-container');
+
+        // Réinitialisation du contenu
+        contentContainer.innerHTML = '';
+        if (iframeContainer) iframeContainer.remove();
+
+        if (contentType === 'phone') {
+            contentContainer.innerHTML = '<p>📱 Here’s the phone section!</p>';
+        } else if (contentType === 'about') {
+            contentContainer.innerHTML = '<p>💼 Welcome to the About section!</p>';
+        } else if (contentType === 'folder') {
+            let iframeSection = document.createElement('div');
+            iframeSection.id = 'iframe-container';
+            iframeSection.innerHTML = '<iframe src="https://example.com"></iframe>';
+            mainContent.appendChild(iframeSection);
+        } else {
+            // Contenu par défaut (description)
+            contentContainer.innerHTML = `
+                <p>🌟👨‍💻 Hey, I'm a Young Fullstack Developer! 👾</p>
+                <p>I specialize in Python, C#, JavaScript, HTML, and CSS to create dynamic web apps and software solutions. I’m passionate about solving problems, learning new tech, and trolling people. When I’m not coding, I’m geeking out over the latest trends on Face's discord. 🚀 #NerdForLife 😎👾</p>
+            `;
+        }
+    }
+
+    // Ajout des événements aux boutons du dock
+    document.getElementById('phone-button').addEventListener('click', () => changeContent('phone'));
+    document.getElementById('about-button').addEventListener('click', () => changeContent('about'));
+    document.getElementById('folder-button').addEventListener('click', () => changeContent('folder'));
+    document.getElementById('home-button').addEventListener('click', () => changeContent('home'));
 };
