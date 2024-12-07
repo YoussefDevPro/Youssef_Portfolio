@@ -95,7 +95,7 @@ window.onload = () => {
         } else if (contentType === 'folder') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
-            iframeSection.innerHTML = '<iframe src="https://example.com"></iframe>';
+            iframeSection.innerHTML = '<iframe src="https://www.google.com"></iframe>';
             mainContent.appendChild(iframeSection);
         } else {
             // Contenu par défaut (description)
