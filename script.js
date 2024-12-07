@@ -5,9 +5,9 @@ window.onload = () => {
     let mainContent = document.getElementById('main-content');
     
     let terminalMessages = [
-        { text: "Booting up...", delay: 1000 },
-        { text: "Loading configuration...", delay: 1500 },
-        { text: "Starting processes...", delay: 2000 },
+        { text: "Booting up ...", delay: 1000 },
+        { text: "Loading configuration ...", delay: 1500 },
+        { text: "Starting processes ...", delay: 2000 },
         { text: "Welcome to my Portfolio !", delay: 2500 }
     ];
     
