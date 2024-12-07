@@ -54,18 +54,19 @@ body {
 /* Animation pour l'effet de pulsation */
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6);
-        transform: scale(1);
+        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25); /* Ombre grande */
+        transform: scale(1); /* Image plus petite */
     }
     50% {
-        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25);
-        transform: scale(1.1); /* L'image grandit légèrement */
+        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6); /* Ombre petite */
+        transform: scale(1.1); /* Image plus grande */
     }
     100% {
-        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6);
-        transform: scale(1);
+        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25); /* Ombre grande */
+        transform: scale(1); /* Image plus petite */
     }
 }
+
 
 
 #main-content {
