@@ -91,3 +91,69 @@ body {
         opacity: 0;
     }
 }
+
+/* Style du conteneur principal du dock */
+#dock-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Flou d'arrière-plan */
+#dock-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* Conteneur des icônes */
+.dock {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    z-index: 2000;
+}
+
+/* Chaque élément du dock */
+.dock-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0); /* Transparent par défaut */
+    border-radius: 50%; /* Cercle autour de l'icône */
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Effet au survol */
+.dock-item:hover {
+    background: rgba(255, 255, 255, 0.2); /* Couleur blanche semi-transparente */
+    transform: scale(1.2); /* Agrandir le conteneur */
+}
+
+/* Style des icônes */
+.dock-icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Agrandissement de l'icône sur hover de son conteneur */
+.dock-item:hover .dock-icon {
+    transform: scale(1.1);
+}
