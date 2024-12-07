@@ -5,42 +5,48 @@ window.onload = () => {
     let mainContent = document.getElementById('main-content');
     
     let terminalMessages = [
-        "Booting up...",
-        "Loading configuration...",
-        "Starting processes...",
-        "Welcome to my Portfolio !"
+        { text: "Booting up...", delay: 1000 },
+        { text: "Loading configuration...", delay: 1500 },
+        { text: "Starting processes...", delay: 2000 },
+        { text: "Welcome to my Portfolio!", delay: 2500 }
     ];
     
-    let messageIndex = 0;
+    let messageIndex = 0; // Initialisation de l'index des messages
+    let currentInterval = null;
 
-    // Fonction pour simuler l'effet de frappe dans le terminal
     function typeMessage(message, index, callback) {
         let i = 0;
-        let interval = setInterval(() => {
+        if (currentInterval) clearInterval(currentInterval);
+        currentInterval = setInterval(() => {
             terminalText.textContent += message[i];
             i++;
             if (i >= message.length) {
-                clearInterval(interval);
-                callback();  // Appel de la fonction callback une fois le message complet
+                clearInterval(currentInterval);
+                currentInterval = null;
+                callback(); // Appeler la fonction une fois terminé
             }
-        }, 100);  // Vitesse de frappe par caractère
+        }, 100);
+    }
+
+    function hideTerminal() {
+        terminal.style.transition = "opacity 1s ease-in-out";
+        terminal.style.opacity = 0; // Disparition progressive du terminal
+        setTimeout(() => {
+            terminal.style.display = 'none'; // Cacher complètement le terminal
+            showLoading(); // Passer à la section de chargement
+        }, 1000);
     }
 
     // Simuler l'affichage des messages dans le terminal
     function showTerminalMessages() {
         if (messageIndex < terminalMessages.length) {
-            terminalText.textContent = '';  // Effacer le texte actuel
-            typeMessage(terminalMessages[messageIndex], 0, () => {
+            terminalText.textContent = '';
+            typeMessage(terminalMessages[messageIndex].text, 0, () => {
+                setTimeout(showTerminalMessages, terminalMessages[messageIndex].delay);
                 messageIndex++;
-                setTimeout(showTerminalMessages, 1000);  // Afficher le message suivant après un délai
             });
         } else {
-            // Une fois tous les messages affichés, on cache le terminal et affiche le loading
-            terminal.style.transition = "opacity 1s ease-in-out";
-            setTimeout(() => {
-                terminal.style.display = 'none';  // Masquer le terminal
-                showLoading();  // Afficher la section de chargement
-            }, 1000);
+            hideTerminal();
         }
     }
 
@@ -71,4 +77,3 @@ window.onload = () => {
     // Démarrer l'affichage du terminal
     showTerminalMessages();
 };
-
