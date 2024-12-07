@@ -8,7 +8,7 @@ window.onload = () => {
         { text: "Booting up...", delay: 1000 },
         { text: "Loading configuration...", delay: 1500 },
         { text: "Starting processes...", delay: 2000 },
-        { text: "Welcome to my Portfolio!", delay: 2500 }
+        { text: "Welcome to my Portfolio !", delay: 2500 }
     ];
     
     let messageIndex = 0; // Initialisation de l'index des messages

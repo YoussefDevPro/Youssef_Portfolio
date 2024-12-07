@@ -2,11 +2,10 @@ body {
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Positionne le terminal en haut de la page */
+    align-items: flex-start;
     background-color: #000;
     color: #00ff00;
 }
@@ -47,27 +46,23 @@ body {
     max-height: 200px;
     border-radius: 50%;
     border: #000 solid 1px;
-    animation: pulse 2s infinite ease-in-out; /* Appliquer l'animation */
+    animation: pulse 2s infinite ease-in-out;
 }
 
-
-/* Animation pour l'effet de pulsation */
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25); /* Ombre grande */
-        transform: scale(1); /* Image plus petite */
+        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25);
+        transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6); /* Ombre petite */
-        transform: scale(1.1); /* Image plus grande */
+        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6);
+        transform: scale(1.1);
     }
     100% {
-        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25); /* Ombre grande */
-        transform: scale(1); /* Image plus petite */
+        box-shadow: 0 0 30px 15px rgba(0, 255, 0, 0.25);
+        transform: scale(1);
     }
 }
-
-
 
 #main-content {
     opacity: 0;
@@ -85,14 +80,25 @@ body {
     margin-left: 5px;
 }
 
-/* Animation pour le curseur clignotant */
 @keyframes blink {
     50% {
         opacity: 0;
     }
 }
 
-/* Style du conteneur principal du dock */
+#description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+}
+
+#description p {
+    margin: 10px 0;
+}
+
 #dock-container {
     position: absolute;
     bottom: 20px;
@@ -102,9 +108,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
-/* Flou d'arrière-plan */
 #dock-container::before {
     content: '';
     position: absolute;
@@ -119,41 +125,71 @@ body {
     z-index: -1;
 }
 
-/* Conteneur des icônes */
 .dock {
     display: flex;
     gap: 20px;
     padding: 10px 20px;
-    z-index: 2000;
+    z-index: 10;
 }
 
-/* Chaque élément du dock */
 .dock-item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
-    background: rgba(255, 255, 255, 0); /* Transparent par défaut */
-    border-radius: 50%; /* Cercle autour de l'icône */
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
     cursor: pointer;
 }
 
-/* Effet au survol */
 .dock-item:hover {
-    background: rgba(255, 255, 255, 0.2); /* Couleur blanche semi-transparente */
-    transform: scale(1.2); /* Agrandir le conteneur */
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.2);
 }
 
-/* Style des icônes */
 .dock-icon {
     width: 50px;
     height: 50px;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Agrandissement de l'icône sur hover de son conteneur */
 .dock-item:hover .dock-icon {
     transform: scale(1.1);
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Utilise la hauteur de l'écran pour le centrage */
+    padding: 20px;
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+#main-title {
+    position: absolute;
+    top: 20px; /* Place le titre en haut */
+    width: 100%; /* Prend toute la largeur pour un centrage complet */
+    text-align: center; /* Centre le titre horizontalement */
+    font-size: 2.5em;
+    color: #00ff00;
+}
+
+#description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centre le texte à l'intérieur de description */
+    max-width: 800px; /* Limite la largeur de la description pour qu'elle ne s'étende trop */
+    margin-top: 80px; /* Ajoute de l'espace sous le titre */
+    margin-bottom: 100px; /* Ajoute de l'espace entre la description et le dock */
+}
+
+#description p {
+    margin: 10px 0; /* Espacement entre les paragraphes */
 }
