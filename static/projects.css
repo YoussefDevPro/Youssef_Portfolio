@@ -1,0 +1,154 @@
+/* Style général pour l'élément .project-item */
+.project-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #121212; /* Fond noir */
+    padding: 15px; /* Moins d'espace */
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); /* Ombre verte */
+    transition: all 0.3s ease-in-out;
+    width: calc(80% - 60px); /* Réduit encore plus la largeur */
+    margin-bottom: 20px;
+    height: auto;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 3px solid #00ff00;
+    color: #00ff00; /* Texte vert */
+    font-family: 'Courier New', monospace; /* Style typewriter */
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+/* Effet d'agrandissement et de changement de bordure au survol */
+.project-item:hover {
+    transform: scale(1.005);
+    border-color: #00cc00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4); /* Effet de lueur au survol */
+}
+
+/* Texte projet avec effet Matrix */
+/* Texte projet avec effet Matrix */
+.project-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Organise les éléments verticalement */
+    justify-content: flex-start; /* Place le contenu en haut */
+    margin-right: 15px; /* Réduit l'espace */
+    color: #00ff00;
+    transition: color 0.3s ease;
+    animation: matrix-text 1s infinite alternate; /* Animation de texte */
+}
+
+.project-text h2 {
+    margin: 0 0 10px 0; /* Ajoute un espace sous le titre */
+    font-size: 1.4em; /* Réduit la taille */
+    align-self: flex-start; /* Place le titre en haut */
+}
+
+.project-text p {
+    font-size: 0.9em; /* Réduit la taille */
+    margin-top: 8px; /* Réduit l'espace entre les éléments */
+    line-height: 1.4; /* Améliore la lisibilité */
+}
+
+
+@keyframes matrix-text {
+    0% {
+        text-shadow: 0 0 5px #00ff0088, 0 0 10px #00ff0088, 0 0 15px #00ff0088;
+    }
+    100% {
+        text-shadow: 0 0 5px #00cc0088, 0 0 10px #00cc0088, 0 0 20px #00cc0088;
+    }
+}
+.projects-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne suivante si nécessaire */
+    gap: 20px; /* Ajoute de l'espace entre les projets */
+}
+
+
+/* Image carrée avec un effet de transition et effet Matrix */
+.project-image {
+    width: 180px; /* Réduit la taille de l'image */
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    margin-right: 15px; /* Réduit l'espace */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.project-item img {
+    transition: all 0.3s ease-in-out;
+}
+
+.project-item:hover .project-image {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); /* Grosse ombre verte au survol */
+    transform: scale(1.05); /* Agrandit l'image */
+}
+
+/* Animation de l'iframe */
+iframe {
+    width: 100%;
+    height: calc(100vh - 220px); /* Ajuste la hauteur */
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Animation fade-in */
+}
+
+iframe.visible {
+    opacity: 1;
+}
+
+/* Adaptations pour petits écrans */
+@media (max-width: 768px) {
+    .project-item {
+        flex-direction: column;
+        align-items: center;
+        padding: 12px; /* Réduit le padding */
+        width: 90%;
+        justify-content: center;
+        min-height: 250px; /* Réduit la hauteur min */
+    }
+
+    .project-image {
+        width: 130px; /* Réduit l'image */
+        height: 130px;
+    }
+
+    .project-text {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    iframe {
+        height: calc(100vh - 130px); /* Ajuste la hauteur de l'iframe */
+    }
+}
+
+@media (max-width: 480px) {
+    .project-item {
+        padding: 8px; /* Moins de padding */
+        width: 95%;
+    }
+
+    .project-image {
+        width: 100px; /* Réduit l'image */
+        height: 100px;
+    }
+
+    .project-text h2 {
+        font-size: 1.2em; /* Réduit la taille du titre */
+    }
+
+    .project-text p {
+        font-size: 0.8em; /* Réduit la taille du texte */
+    }
+}

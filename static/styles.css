@@ -9,6 +9,18 @@ body {
     background-color: #000;
     color: #00ff00;
 }
+@keyframes matrix-text {
+    0% {
+        text-shadow: 0 0 5px #00ff0088, 0 0 10px #00ff0088, 0 0 15px #00ff0088;
+    }
+    100% {
+        text-shadow: 0 0 5px #00cc0088, 0 0 10px #00cc0088, 0 0 20px #00cc0088;
+    }
+}
+* {
+    animation: matrix-text 1s infinite linear;
+}
+
 
 .terminal {
     width: 100%;
@@ -221,10 +233,8 @@ body {
     transform: translateX(-50%);
     width: calc(100% - 100px);
     height: calc(100vh - 240px);
-    z-index: 100000; /* Assurez-vous qu'il soit au-dessus du reste du contenu */
-    overflow-x: auto;
-    overflow-y: hidden;
-    background-color: #000;
+    z-index: 100000;
+    overflow: auto;  /* Permet le défilement */
     padding: 0 50px;
 }
 
@@ -233,8 +243,8 @@ body {
     height: 100%;
     border: none;
     border-radius: 10px;
-    pointer-events: auto; /* Permet l'interaction avec l'iframe */
-    z-index: 1000000; /* Augmentez ce z-index pour s'assurer que l'iframe est interactif */
+    z-index: 1000000;
+    overflow-x: hidden; /* Assure le défilement à l'intérieur de l'iframe */
 }
 
 
@@ -242,6 +252,37 @@ body {
 body, html {
     overflow: hidden;
     height: 100%;
+}
+
+
+iframe {
+    width: 100%;
+    height: 100vh;  /* Pour prendre toute la hauteur de la fenêtre */
+    border: none;   /* Pour enlever les bordures */
+  }
+  
+
+  #iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;  /* Utilise toute la largeur disponible */
+    height: calc(100vh - 240px); /* Laisse de la place pour la barre de navigation */
+    z-index: 1000;
+    overflow: hidden;  /* Évite tout défilement non souhaité */
+    padding: 0;  /* Enlève tout padding superflu */
+}
+
+#iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    z-index: 1000;
 }
 
 @media (max-width: 768px) {
@@ -257,5 +298,12 @@ body, html {
         width: 40px;
         height: 40px;
     }
+    #main-title {
+        font-size: 2em;
+    }
 }
 
+
+a {
+    color: orangered;
+}

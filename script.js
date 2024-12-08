@@ -5,14 +5,16 @@ window.onload = () => {
     let mainContent = document.getElementById('main-content');
     
     let terminalMessages = [
+        { text: "to skip, press shift ...", delay: 1000 },
         { text: "Booting up ...", delay: 1000 },
         { text: "Loading configuration ...", delay: 1500 },
         { text: "Starting processes ...", delay: 2000 },
         { text: "Welcome to my Portfolio !", delay: 2500 }
     ];
     
-    let messageIndex = 0; // Initialisation de l'index des messages
+    let messageIndex = 0;
     let currentInterval = null;
+    let skip = false; // Indicateur pour sauter l'animation
 
     // Fonction de typewriting pour les messages du terminal
     function typeMessage(message, index, callback) {
@@ -24,23 +26,36 @@ window.onload = () => {
             if (i >= message.length) {
                 clearInterval(currentInterval);
                 currentInterval = null;
-                callback(); // Appeler la fonction une fois terminé
+                callback();
             }
         }, 100);
     }
 
+    // Masquer immédiatement le terminal
+    function skipToMainContent() {
+        skip = true;
+        terminal.style.display = 'none'; // Masquer immédiatement le terminal
+        loadingSection.style.display = 'none'; // Masquer immédiatement le loading
+        showMainContent(); // Passer directement au contenu principal
+    }
+
     // Masquer le terminal après l'affichage des messages
     function hideTerminal() {
+        if (skip) return; // Éviter d'exécuter cette fonction si on saute
         terminal.style.transition = "opacity 1s ease-in-out";
-        terminal.style.opacity = 0; // Disparition progressive du terminal
+        terminal.style.opacity = 0;
         setTimeout(() => {
-            terminal.style.display = 'none'; // Cacher complètement le terminal
-            showLoading(); // Passer à la section de chargement
+            terminal.style.display = 'none';
+            showLoading();
         }, 1000);
     }
 
     // Afficher les messages du terminal avec délai
     function showTerminalMessages() {
+        if (skip) {
+            skipToMainContent(); // Sauter directement si nécessaire
+            return;
+        }
         if (messageIndex < terminalMessages.length) {
             terminalText.textContent = '';
             typeMessage(terminalMessages[messageIndex].text, 0, () => {
@@ -54,27 +69,36 @@ window.onload = () => {
 
     // Afficher la page principale après disparition du loading
     function showMainContent() {
-        mainContent.classList.remove('hidden');  // Retirer la classe "hidden"
-        setTimeout(() => {
-            mainContent.classList.add('visible'); // Afficher le contenu principal avec une animation
-        }, 200);  // Délais pour s'assurer que l'élément soit visible avant l'animation
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('visible');
     }
         
     // Afficher la section de chargement pendant 5 secondes
     function showLoading() {
-        loadingSection.classList.remove('hidden');  // Afficher la section de chargement
+        if (skip) {
+            skipToMainContent(); // Sauter directement si nécessaire
+            return;
+        }
+        loadingSection.classList.remove('hidden');
         setTimeout(() => {
-            loadingSection.style.opacity = 1;  // L'animation de l'opacité du loading
+            loadingSection.style.opacity = 1;
         }, 100);
 
         setTimeout(() => {
-            loadingSection.style.opacity = 0;  // Effet de disparition du loading
+            loadingSection.style.opacity = 0;
             setTimeout(() => {
-                loadingSection.classList.add('hidden');  // Cacher la section de chargement
-                showMainContent();  // Afficher le contenu principal
+                loadingSection.classList.add('hidden');
+                showMainContent();
             }, 1000);
         }, 5000);
     }
+
+    // Capturer l'événement 'keydown' pour détecter la touche Shift
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Shift') {
+            skipToMainContent(); // Activer le mode "sauter l'animation"
+        }
+    });
 
     // Démarrer l'affichage du terminal
     showTerminalMessages();
@@ -84,7 +108,6 @@ window.onload = () => {
         let contentContainer = document.getElementById('description');
         let iframeContainer = document.getElementById('iframe-container');
 
-        // Réinitialisation du contenu
         contentContainer.innerHTML = '';
         if (iframeContainer) iframeContainer.remove();
 
@@ -102,14 +125,13 @@ window.onload = () => {
     When I’m not coding, I’m hanging out on Discord, experimenting with new tech, or brainstorming clever ways to troll people.
   </p>
 `;
-
         } else if (contentType === 'folder') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
-            iframeSection.innerHTML = '<iframe src="https://www.google.com"></iframe>';
+            iframeSection.className = "iframe-scroll"
+            iframeSection.innerHTML = '<iframe src="projects.html" style="width: 100%; height: 100%; border: none;"></iframe>';
             mainContent.appendChild(iframeSection);
         } else {
-            // Contenu par défaut (description)
             contentContainer.innerHTML = `
                 <p>🌟👨‍💻 Hey, I'm a Young Fullstack Developer! 👾</p>
                 <p>I specialize in Python, C#, JavaScript, HTML, and CSS to create dynamic web apps and software solutions. I’m passionate about solving problems, learning new tech, and trolling people. When I’m not coding, I’m geeking out over the latest trends on Face's discord. 🚀 #NerdForLife 😎👾</p>
@@ -117,7 +139,6 @@ window.onload = () => {
         }
     }
 
-    // Ajout des événements aux boutons du dock
     document.getElementById('phone-button').addEventListener('click', () => changeContent('phone'));
     document.getElementById('about-button').addEventListener('click', () => changeContent('about'));
     document.getElementById('folder-button').addEventListener('click', () => changeContent('folder'));
