@@ -75,7 +75,7 @@ DESCRIPTION
         } else if (inputText === 'help') {
             output.innerHTML += `
 Available commands:
-  grizzy   - Show Grizzy image
+  gizzy    - Show Gizzy image
   kabir    - Play Kabir sound
   cd       - Change directory
   ls       - List directory contents
@@ -90,7 +90,7 @@ Available commands:
   uptime   - Show system uptime
   df       - Show disk space usage
   neofetch - Show system info (simulated)
-  neofetch-real - Run real neofetch (Linux systems only)
+  neofetch -r   - Run real neofetch (Linux systems only)
   clear    - Clear the terminal output
 
             `;

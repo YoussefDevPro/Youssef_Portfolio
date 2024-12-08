@@ -131,7 +131,15 @@ window.onload = () => {
             iframeSection.className = "iframe-scroll"
             iframeSection.innerHTML = '<iframe src="projects.html" style="width: 100%; height: 100%; border: none;"></iframe>';
             mainContent.appendChild(iframeSection);
-        } else {
+        }
+        else if (contentType === 'cmd') {
+            let iframeSection = document.createElement('div');
+            iframeSection.id = 'iframe-container';
+            iframeSection.className = "iframe-scroll"
+            iframeSection.innerHTML = '<iframe src="terminal.html" style="width: 100%; height: 100%; border: 4px solid #00ff0088;"></iframe>';
+            mainContent.appendChild(iframeSection);
+        }
+         else {
             contentContainer.innerHTML = `
                 <p>🌟👨‍💻 Hey, I'm a Young Fullstack Developer! 👾</p>
                 <p>I specialize in Python, C#, JavaScript, HTML, and CSS to create dynamic web apps and software solutions. I’m passionate about solving problems, learning new tech, and trolling people. When I’m not coding, I’m geeking out over the latest trends on Face's discord. 🚀 #NerdForLife 😎👾</p>
@@ -143,4 +151,5 @@ window.onload = () => {
     document.getElementById('about-button').addEventListener('click', () => changeContent('about'));
     document.getElementById('folder-button').addEventListener('click', () => changeContent('folder'));
     document.getElementById('home-button').addEventListener('click', () => changeContent('home'));
+    document.getElementById('cmd-button').addEventListener('click', () => changeContent('cmd'));
 };
