@@ -89,9 +89,20 @@ window.onload = () => {
         if (iframeContainer) iframeContainer.remove();
 
         if (contentType === 'phone') {
-            contentContainer.innerHTML = '<p>📱 Here’s the phone section!</p>';
+            contentContainer.innerHTML = '<p>I don’t use a phone for contact, or a mail too. But you can always reach me on Discord!</p><p>youssef_developper</p>';
         } else if (contentType === 'about') {
-            contentContainer.innerHTML = '<p>💼 Welcome to the About section!</p>';
+            contentContainer.innerHTML = `
+  <p>
+    Hi there! I'm a 14-year-old fullstack developer who loves coding, learning, and (occasionally) trolling my friends with fun, nerdy pranks. I work with Python, C#, JavaScript, HTML, and CSS, crafting everything from dynamic websites to playful scripts.
+  </p>
+  <p>
+    On this portfolio, you'll find some of the projects I've created showcased in the Projects section. Each one reflects my passion for problem-solving and creativity.
+  </p>
+  <p>
+    When I’m not coding, I’m hanging out on Discord, experimenting with new tech, or brainstorming clever ways to troll people.
+  </p>
+`;
+
         } else if (contentType === 'folder') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
