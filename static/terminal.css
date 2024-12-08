@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000; /* Black background for Matrix look */
+    color: #00FF00; /* Neon green text color */
+    font-family: 'Courier New', monospace;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide scrollbars */
+  }
+  
+  .terminal {
+    background-color: black;
+    padding: 20px;
+    width: 100%; /* Take the full width */
+    height: 100%; /* Take the full height */
+    border-radius: 0; /* Remove border-radius to make it full screen */
+    font-size: 18px;
+    overflow-y: auto; /* Allow vertical scrolling for long output */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  input {
+    background: none;
+    border: none;
+    color: #00FF00;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-family: 'Courier New', monospace;
+    padding: 10px;
+  }
+  
+  #output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    flex-grow: 1; /* Allow the output to grow and take available space */
+    overflow-y: auto;
+  }
+  
+  matrix-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: green;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .matrix-lines {
+    display: block;
+    color: #00FF00;
+    opacity: 0.3;
+    animation: matrix 1s linear infinite;
+  }
+  
+  @keyframes matrix {
+    0% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
