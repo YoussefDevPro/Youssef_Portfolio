@@ -8,13 +8,21 @@ document.getElementById('input').addEventListener('keypress', function (event) {
         // Add a newline before the input command to start it on a new line
         output.innerHTML += `\n> ${inputText}\n`; 
         
-        if (inputText === 'grizzy') {
+        if (inputText === 'gizzy') {
             const img = document.createElement('img');
             img.src = 'static/gizzy.png'; // Replace with your image URL
             img.style.width = '300px';
             img.style.marginTop = '10px';
             output.appendChild(img); // Append the image without removing the previous content
-        } else if (inputText === 'kabir') {
+        }
+        else if (inputText === 'gizzy -fr') {
+            const img = document.createElement('img');
+            img.src = 'static/gizzyfr.png'; // Replace with your image URL
+            img.style.width = '300px';
+            img.style.marginTop = '10px';
+            output.appendChild(img); // Append the image without removing the previous content
+        }
+         else if (inputText === 'kabir') {
             const sound = document.getElementById('kabir-sound');
             sound.play();
             output.innerHTML += '\nKabir sound playing...';
@@ -83,6 +91,8 @@ Available commands:
   df       - Show disk space usage
   neofetch - Show system info (simulated)
   neofetch-real - Run real neofetch (Linux systems only)
+  clear    - Clear the terminal output
+
             `;
         } else if (inputText === 'uptime') {
             output.innerHTML += `\nUp for 3 days, 12 hours, 45 minutes`;
@@ -150,7 +160,7 @@ RAM: 16GB
             // If using Node.js or server-side, you'd execute the command here
             // For now, we simulate that it's running
         } else if (inputText === 'clear') {
-            output.innerHTML = ''; // Clears the terminal output
+            output.innerHTML = 'Welcome to the terminal. Type a command.'; // Clears the terminal output
         } else {
             output.innerHTML += `\nCommand not found: ${inputText}`;
         }
