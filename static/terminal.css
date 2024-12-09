@@ -1,77 +1,101 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212; /* Fond sombre pour l'effet moderne */
+  color: #D0D0D0; /* Texte gris clair pour un look doux */
+  font-family: 'Courier New', monospace;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Cacher les barres de défilement */
+}
+
+.terminal {
+  background-color: #1e1e1e; /* Fond sombre du terminal */
+  padding: 20px;
+  width: 100%; /* Terminal prend toute la largeur */
+  height: 100vh; /* Terminal prend toute la hauteur */
+  max-width: 100%; /* Pas de limite de largeur */
+  max-height: 100vh; /* Pas de limite de hauteur */
+  border-radius: 15px; /* Coins arrondis */
+  font-size: 16px;
+  overflow-y: auto; /* Permettre le défilement vertical pour les longs textes */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Zone d'input */
+#input {
+  background-color: #333; /* Fond gris foncé pour l'input */
+  color: #D0D0D0; /* Texte en gris clair */
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-family: monospace;
+  font-size: 16px;
+  border-radius: 5px; /* Coins arrondis */
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Effet de focus sur l'input */
+#input:focus {
+  background-color: #444; /* Changer légèrement la couleur de fond lors du focus */
+  border: 1px solid #888; /* Bordure discrète au focus */
+}
+
+/* Zone d'affichage du texte (output) */
+#output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  flex-grow: 1; /* Permet de remplir l'espace restant */
+  padding-bottom: 10px;
+  font-size: 16px;
+  opacity: 0; /* Commence invisible */
+  animation: fadeIn 0.5s forwards; /* Animation d'apparition */
+}
+
+/* Animation d'apparition du texte */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
   }
-  
-  body {
-    background-color: #000; /* Black background for Matrix look */
-    color: #00FF00; /* Neon green text color */
-    font-family: 'Courier New', monospace;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Hide scrollbars */
-  }
-  
-  .terminal {
-    background-color: black;
-    padding: 20px;
-    width: 100%; /* Take the full width */
-    height: 100%; /* Take the full height */
-    border-radius: 0; /* Remove border-radius to make it full screen */
-    font-size: 18px;
-    overflow-y: auto; /* Allow vertical scrolling for long output */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
-  input {
-    background: none;
-    border: none;
-    color: #00FF00;
-    width: 100%;
-    outline: none;
-    font-size: 18px;
-    font-family: 'Courier New', monospace;
-    padding: 10px;
-  }
-  
-  #output {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    flex-grow: 1; /* Allow the output to grow and take available space */
-    overflow-y: auto;
-  }
-  
-  matrix-effect {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    color: green;
-    font-family: 'Courier New', monospace;
-    pointer-events: none;
-    z-index: -1;
-  }
-  
-  .matrix-lines {
-    display: block;
-    color: #00FF00;
-    opacity: 0.3;
-    animation: matrix 1s linear infinite;
-  }
-  
-  @keyframes matrix {
-    0% {
-      opacity: 0.1;
-    }
-    100% {
+  100% {
       opacity: 1;
-    }
   }
-  
+}
+
+/* Media Query pour les petits écrans (ex. téléphones) */
+@media screen and (max-width: 768px) {
+  .terminal {
+      height: 100%; /* Utiliser toute la hauteur */
+      padding: 10px; /* Réduire un peu l'espacement */
+  }
+
+  #input {
+      font-size: 14px; /* Réduire la taille de police sur les téléphones */
+  }
+
+  /* Ajouter un div d'instruction ou de notification pour les utilisateurs sur mobile */
+  #mobile-message {
+      display: block;
+      background-color: #333;
+      color: #D0D0D0;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+  }
+}
+
+/* Par défaut, le message mobile est caché */
+#mobile-message {
+  display: none;
+}
