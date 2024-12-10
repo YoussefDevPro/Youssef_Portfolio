@@ -1,92 +1,98 @@
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+
 /* Style général pour l'élément .project-item */
 .project-item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: #121212; /* Fond noir */
-    padding: 15px; /* Moins d'espace */
+    background: #121212; /* Fond principal sombre */
+    padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2); /* Ombre verte */
+    box-shadow: 0 0 15px rgba(208, 208, 208, 0.2); /* Ombre claire */
     transition: all 0.3s ease-in-out;
-    width: calc(80% - 60px); /* Réduit encore plus la largeur */
+    width: calc(80% - 60px);
     margin-bottom: 20px;
     height: auto;
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
     margin: 0 auto;
-    border: 3px solid #00ff00;
-    color: #00ff00; /* Texte vert */
-    font-family: 'Courier New', monospace; /* Style typewriter */
+    border: 3px solid #888; /* Bordure gris moyen */
+    color: #D0D0D0; /* Texte gris clair */
+    font-family: 'Courier New', monospace;
     transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
 
 /* Effet d'agrandissement et de changement de bordure au survol */
 .project-item:hover {
     transform: scale(1.005);
-    border-color: #00cc00;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4); /* Effet de lueur au survol */
+    border-color: #888; /* Bordure plus claire au survol */
+    box-shadow: 0 0 20px rgba(208, 208, 208, 0.4); /* Lueur claire */
 }
 
-/* Texte projet avec effet Matrix */
 /* Texte projet avec effet Matrix */
 .project-text {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Organise les éléments verticalement */
-    justify-content: flex-start; /* Place le contenu en haut */
-    margin-right: 15px; /* Réduit l'espace */
-    color: #00ff00;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 15px;
+    color: #D0D0D0; /* Texte gris clair */
     transition: color 0.3s ease;
-    animation: matrix-text 1s infinite alternate; /* Animation de texte */
 }
 
+/* Titre du projet */
 .project-text h2 {
-    margin: 0 0 10px 0; /* Ajoute un espace sous le titre */
-    font-size: 1.4em; /* Réduit la taille */
-    align-self: flex-start; /* Place le titre en haut */
+    margin: 0 0 10px 0;
+    font-size: 1.4em;
+    align-self: flex-start;
 }
 
+/* Description du projet */
 .project-text p {
-    font-size: 0.9em; /* Réduit la taille */
-    margin-top: 8px; /* Réduit l'espace entre les éléments */
-    line-height: 1.4; /* Améliore la lisibilité */
+    font-size: 0.9em;
+    margin-top: 8px;
+    line-height: 1.4;
 }
 
-
+/* Animation de texte effet Matrix */
 @keyframes matrix-text {
     0% {
-        text-shadow: 0 0 5px #00ff0088, 0 0 10px #00ff0088, 0 0 15px #00ff0088;
+        text-shadow: 0 0 5px #888888ab, 0 0 10px #888888ab, 0 0 15px #888888ab;
     }
     100% {
-        text-shadow: 0 0 5px #00cc0088, 0 0 10px #00cc0088, 0 0 20px #00cc0088;
+        text-shadow: 0 0 5px #888888ab, 0 0 10px #888888ab, 0 0 20px #888888ab;
     }
 }
-.projects-container {
-    display: flex;
-    flex-wrap: wrap; /* Permet de passer à la ligne suivante si nécessaire */
-    gap: 20px; /* Ajoute de l'espace entre les projets */
+
+* {
+    animation: matrix-text 1s infinite linear;
 }
 
+/* Container des projets */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-/* Image carrée avec un effet de transition et effet Matrix */
+/* Image de projet */
 .project-image {
-    width: 180px; /* Réduit la taille de l'image */
+    width: 180px;
     height: 180px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-    margin-right: 15px; /* Réduit l'espace */
+    margin-right: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 10px rgba(208, 208, 208, 0.5); /* Ombre claire */
 }
 
-.project-item img {
-    transition: all 0.3s ease-in-out;
-}
-
+/* Effet au survol de l'image */
 .project-item:hover .project-image {
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); /* Grosse ombre verte au survol */
+    box-shadow: 0 0 20px rgba(208, 208, 208, 0.7); /* Grosse ombre claire au survol */
     transform: scale(1.05); /* Agrandit l'image */
 }
 

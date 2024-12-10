@@ -136,7 +136,7 @@ window.onload = () => {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
             iframeSection.className = "iframe-scroll"
-            iframeSection.innerHTML = '<iframe src="terminal.html" style="width: 100%; height: 100%; border: 4px solid #00ff0088;"></iframe>';
+            iframeSection.innerHTML = '<iframe src="terminal.html" style="width: 100%; height: 100%; border: 4px solid #333;"></iframe>';
             mainContent.appendChild(iframeSection);
         }
          else {
