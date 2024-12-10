@@ -158,3 +158,17 @@ iframe.visible {
         font-size: 0.8em; /* Réduit la taille du texte */
     }
 }
+
+a {
+    color: white; /* Texte du lien en blanc */
+    font-weight: bold; /* Texte du lien en gras */
+    text-decoration: none; /* Retirer le soulignement par défaut */
+    transition: all 0.3s ease-in-out; /* Transition douce */
+  }
+  
+  a:hover {
+    color: #ffffff; /* Changer la couleur lors du survol (par exemple, rose) */
+    font-weight: bolder;
+    transform: scale(1.1); /* Augmenter l'épaisseur du texte au survol */
+  }
+  
