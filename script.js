@@ -127,9 +127,8 @@ window.onload = () => {
             mainContent.appendChild(iframeSection);
         } else {
             contentContainer.innerHTML = `
-                <p>🌟👨‍💻 Yo, I’m a young fullstack dev! 👾</p>
-                <p>I work with Python, C#, JS, HTML & CSS to create fun, dynamic web apps and scripts. I love solving probs, learning new stuff, and trolling for laughs. 😏</p>
-                <p>When I’m not coding, I’m geeking out on Discord (Face’s server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
+                <p>🌟👨‍💻 Yo, I'm a young fullstack dev! 👾</p>
+                <p>I work with Python, C#, JS, HTML & CSS to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I’m not coding, I’m geeking out on Discord (Face’s server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
         }
         
     }
