@@ -79,23 +79,24 @@ DESCRIPTION
             output.innerHTML = ''; // Effacer le terminal
         } else if (inputText === 'help') {
             output.innerHTML += `
-Available commands:
-  gizzy    - Show Gizzy image
-  kabir    - Play Kabir sound
-  cd       - Change directory
-  ls       - List directory contents
-  pwd      - Print current directory
-  cat /etc/os-release - Show OS info
-  man ls   - Show manual for ls command
-  date     - Show current date and time
-  echo hello - Show a greeting
-  sudo     - Show sudo message
-  clear    - Clear the terminal screen
-  help     - Show available commands
-  uptime   - Show system uptime
-  df       - Show disk space usage
-  neofetch - Show system info (simulated)
-  neofetch -r   - Run real neofetch (Linux systems only)
+Available Commands:
+
+    gizzy: 🐾 Show a cute Gizzy image.
+    kabir: 🎵 Play the Kabir sound for some fun vibes!
+    cd: 📂 Change the current directory.
+    ls: 📜 List the contents of the current directory.
+    pwd: 🗺️ Print the current directory path.
+    cat /etc/os-release: 🖥️ Display information about the operating system.
+    man ls: 📘 Open the manual for the ls command.
+    date: 🕰️ Display the current date and time.
+    echo hello: 👋 Output a friendly greeting.
+    sudo: 🚨 Display a sudo message.
+    clear: 🧹 Clean up and clear the terminal screen.
+    help: 🤔 Show all available commands (yes, this one too!).
+    uptime: ⏳ Display how long the system has been running.
+    df: 💾 Show disk space usage.
+    neofetch: 💻 Display simulated system info in style.
+    neofetch -r: 🛠️ Run the real neofetch (Linux systems only).
             `;
         } else if (inputText === 'uptime') {
             output.innerHTML += `\nUp for 3 days, 12 hours, 45 minutes`;
@@ -117,7 +118,7 @@ DE: TROLL                            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠦⠴⢿⢿�
 WM: Mutter                           ⠀⠀⠀⠀⠀⠀⠀⠙⣷⣶⣶⣤⣤⣤⣤⣤⣶⣦⠃⠀
 CPU: Troll Core T4600 @ 2.00GHz      ⠀⠀⠀⠀⠀⠀⠀⢐⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀
 GPU: TROLL T2000                     ⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀
-RAM: 16GB                            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿⣿⣿⠟                           
+RAM: 16GB                            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿⣿⣿⠟                           
             `;
         } else if (inputText === 'neofetch -r') {
             output.innerHTML += `
