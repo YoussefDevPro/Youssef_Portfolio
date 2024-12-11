@@ -13,7 +13,7 @@ document.getElementById('input').addEventListener('keypress', function (event) {
         const output = document.getElementById('output');
         
         // Ajoute une nouvelle ligne avant la commande
-        output.innerHTML += `\n\n${promptText}${inputText}\n`; 
+        output.innerHTML += `\n\n<b>${promptText}${inputText}</b>\n`; 
         
         if (inputText === 'gizzy') {
             const img = document.createElement('img');
