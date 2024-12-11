@@ -103,39 +103,35 @@ window.onload = () => {
         if (iframeContainer) iframeContainer.remove();
 
         if (contentType === 'phone') {
-            contentContainer.innerHTML = '<p>I don’t use a phone for contact, or a mail too. But you can always reach me on Discord!</p><p>youssef_developper</p>';
+            contentContainer.innerHTML = `
+                <p>I don’t use a phone or email for contact, but you can always hit me up on Discord! 😎</p>
+                <p><strong>youssef_developper</strong></p>`;
         } else if (contentType === 'about') {
             contentContainer.innerHTML = `
-  <p>
-    Hi there! I'm a 14-year-old fullstack developer who loves coding, learning, and (occasionally) trolling my friends with fun, nerdy pranks. I work with Python, C#, JavaScript, HTML, and CSS, crafting everything from dynamic websites to playful scripts.
-  </p>
-  <p>
-    On this portfolio, you'll find some of the projects I've created showcased in the Projects section. Each one reflects my passion for problem-solving and creativity.
-  </p>
-  <p>
-    When I’m not coding, I’m hanging out on Discord, experimenting with new tech, or brainstorming clever ways to troll people.
-  </p>
-`;
+                <p>Hey! I’m a 14yo fullstack dev who loves coding, learning, and pulling fun nerdy pranks. 😏</p>
+                <p>I work with Python, C#, JS, HTML & CSS to build cool sites, apps, and random scripts. 🛠️</p>
+                <p>When I’m not coding, I’m chilling on Discord, trying out new tech, or dreaming up my next prank. 👾</p>`;
         } else if (contentType === 'folder') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
-            iframeSection.className = "iframe-scroll"
-            iframeSection.innerHTML = '<iframe src="projects.html" style="width: 100%; height: 100%; border: none;"></iframe>';
+            iframeSection.className = "iframe-scroll";
+            iframeSection.innerHTML = `
+                <iframe src="projects.html" style="width: 100%; height: 100%; border: none;"></iframe>`;
             mainContent.appendChild(iframeSection);
-        }
-        else if (contentType === 'cmd') {
+        } else if (contentType === 'cmd') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
-            iframeSection.className = "iframe-scroll"
-            iframeSection.innerHTML = '<iframe src="terminal.html" style="width: 100%; height: 100%; border: 4px solid #333;"></iframe>';
+            iframeSection.className = "iframe-scroll";
+            iframeSection.innerHTML = `
+                <iframe src="terminal.html" style="width: 100%; height: 100%; border: 4px solid #333;"></iframe>`;
             mainContent.appendChild(iframeSection);
-        }
-         else {
+        } else {
             contentContainer.innerHTML = `
-                <p>🌟👨‍💻 Hey, I'm a Young Fullstack Developer! 👾</p>
-                <p>I specialize in Python, C#, JavaScript, HTML, and CSS to create dynamic web apps and software solutions. I’m passionate about solving problems, learning new tech, and trolling people. When I’m not coding, I’m geeking out over the latest trends on Face's discord. 🚀 #NerdForLife 😎👾</p>
-            `;
+                <p>🌟👨‍💻 Yo, I’m a young fullstack dev! 👾</p>
+                <p>I work with Python, C#, JS, HTML & CSS to create fun, dynamic web apps and scripts. I love solving probs, learning new stuff, and trolling for laughs. 😏</p>
+                <p>When I’m not coding, I’m geeking out on Discord (Face’s server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
         }
+        
     }
 
     document.getElementById('phone-button').addEventListener('click', () => changeContent('phone'));
