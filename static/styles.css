@@ -301,9 +301,24 @@ iframe {
         height: 40px;
     }
     #main-title {
-        font-size: 2em;
+        font-size: 1.6em;
+        max-width: 80%;
     }
     #cmd-button {
         display: none;
+    }
+    #iframe-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 140px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;  /* Utilise toute la largeur disponible */
+        height: calc(100vh - 260px); /* Laisse de la place pour la barre de navigation */
+        z-index: 1000;
+        overflow: hidden;  /* Évite tout défilement non souhaité */
+        padding: 0;  /* Enlève tout padding superflu */
     }
 }
