@@ -5,18 +5,17 @@ window.onload = () => {
     let mainContent = document.getElementById('main-content');
     
     let terminalMessages = [
-        { text: "to skip, press shift ...", delay: 1000 },
-        { text: "Booting up ...", delay: 1000 },
-        { text: "Loading configuration ...", delay: 1500 },
-        { text: "Starting processes ...", delay: 2000 },
-        { text: "Welcome to my Portfolio !", delay: 2500 }
+        { text: "to skip, press shift ...", delay: 400 },
+        { text: "Booting up ...", delay: 500 },
+        { text: "Loading configuration ...", delay: 800 },
+        { text: "Starting processes ...", delay: 1000 },
+        { text: "Welcome to my Portfolio !", delay: 1200 }
     ];
     
     let messageIndex = 0;
     let currentInterval = null;
-    let skip = false; // Indicateur pour sauter l'animation
+    let skip = false;
 
-    // Fonction de typewriting pour les messages du terminal
     function typeMessage(message, index, callback) {
         let i = 0;
         if (currentInterval) clearInterval(currentInterval);
@@ -28,32 +27,29 @@ window.onload = () => {
                 currentInterval = null;
                 callback();
             }
-        }, 100);
+        }, 50); // Réduit à 50ms
     }
 
-    // Masquer immédiatement le terminal
     function skipToMainContent() {
         skip = true;
-        terminal.style.display = 'none'; // Masquer immédiatement le terminal
-        loadingSection.style.display = 'none'; // Masquer immédiatement le loading
-        showMainContent(); // Passer directement au contenu principal
+        terminal.style.display = 'none';
+        loadingSection.style.display = 'none';
+        showMainContent();
     }
 
-    // Masquer le terminal après l'affichage des messages
     function hideTerminal() {
-        if (skip) return; // Éviter d'exécuter cette fonction si on saute
-        terminal.style.transition = "opacity 1s ease-in-out";
+        if (skip) return;
+        terminal.style.transition = "opacity 0.5s ease-in-out";
         terminal.style.opacity = 0;
         setTimeout(() => {
             terminal.style.display = 'none';
             showLoading();
-        }, 1000);
+        }, 500); // Transition plus courte
     }
 
-    // Afficher les messages du terminal avec délai
     function showTerminalMessages() {
         if (skip) {
-            skipToMainContent(); // Sauter directement si nécessaire
+            skipToMainContent();
             return;
         }
         if (messageIndex < terminalMessages.length) {
@@ -67,16 +63,14 @@ window.onload = () => {
         }
     }
 
-    // Afficher la page principale après disparition du loading
     function showMainContent() {
         mainContent.classList.remove('hidden');
         mainContent.classList.add('visible');
     }
         
-    // Afficher la section de chargement pendant 5 secondes
     function showLoading() {
         if (skip) {
-            skipToMainContent(); // Sauter directement si nécessaire
+            skipToMainContent();
             return;
         }
         loadingSection.classList.remove('hidden');
@@ -89,21 +83,18 @@ window.onload = () => {
             setTimeout(() => {
                 loadingSection.classList.add('hidden');
                 showMainContent();
-            }, 1000);
-        }, 5000);
+            }, 500); // Plus rapide
+        }, 3000); // Durée réduite à 3 secondes
     }
 
-    // Capturer l'événement 'keydown' pour détecter la touche Shift
     window.addEventListener('keydown', (event) => {
         if (event.key === 'Shift') {
-            skipToMainContent(); // Activer le mode "sauter l'animation"
+            skipToMainContent();
         }
     });
 
-    // Démarrer l'affichage du terminal
     showTerminalMessages();
-
-    // Fonction pour changer le contenu selon le bouton cliqué
+    
     function changeContent(contentType) {
         let contentContainer = document.getElementById('description');
         let iframeContainer = document.getElementById('iframe-container');
