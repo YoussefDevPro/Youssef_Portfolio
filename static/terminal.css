@@ -72,7 +72,7 @@ body {
   word-wrap: break-word;  /* Break words to prevent overflow */
   flex-grow: 1;  /* Allows the output to take up remaining space */
   padding-bottom: 10px;
-  font-size: 16px;
+  font-size: 14px;
   opacity: 1; /* Make sure the element is visible */
   animation: fadeIn 0.5s forwards; /* Fade-in effect */
 }
