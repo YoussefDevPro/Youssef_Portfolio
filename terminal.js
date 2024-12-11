@@ -2,10 +2,10 @@ let currentDir = '/home/user';
 let promptText = currentDir +'$ ';  // Texte pré-défini initial du prompt
 
 function scrollToBottom() {
-    window.scrollTo(0, document.body.scrollHeight); // Déplace de 100 pixels vers le bas à chaque appel
+    const output = document.getElementById('output');
+    output.scrollTop = output.scrollHeight;
   }
-
-
+  
 
 document.getElementById('input').addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
@@ -59,14 +59,14 @@ PRETTY_NAME="Troll Face OS v1.0"
 LS(1)                   User Commands                   LS(1)
 
 NAME
-       ls - list directory contents
+    ls - list directory contents
 
 SYNOPSIS
-       ls [OPTION]... [FILE]...
+    ls [OPTION]... [FILE]...
 
 DESCRIPTION
-       List information about the FILEs (the current directory by default).
-       ...
+    List information about the FILEs (the current directory by default).
+    ...
             `;
         } else if (inputText === 'date') {
             const date = new Date().toLocaleString();
