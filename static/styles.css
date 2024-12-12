@@ -311,7 +311,7 @@ iframe {
         left: 50%;
         transform: translateX(-50%);
         width: 100%;  /* Utilise toute la largeur disponible */
-        height: calc(100vh - 200px); /* Laisse de la place pour la barre de navigation */
+        height: calc(100vh - 280px); /* Laisse de la place pour la barre de navigation */
         z-index: 1000;
         overflow: hidden;  /* Évite tout défilement non souhaité */
         padding: 0;  /* Enlève tout padding superflu */
