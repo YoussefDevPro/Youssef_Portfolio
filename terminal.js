@@ -8,6 +8,9 @@ function scrollToBottom() {
   
 
 document.getElementById('input').addEventListener('keypress', function (event) {
+    let cowsayText = ''; // Stocke le texte à afficher
+    let cowsayPart = 0; // Suivi de quelle partie est affichée
+    
     if (event.key === 'Enter') {
         const inputText = event.target.value.trim();
         const output = document.getElementById('output');
@@ -82,6 +85,7 @@ DESCRIPTION
 Available Commands:
 
     gizzy: 🐾 Show a cute Gizzy image.
+    gizzy -fr: 🐾 Affiche une image française de Gizzy.
     kabir: 🎵 Play the Kabir sound for some fun vibes!
     cd: 📂 Change the current directory.
     ls: 📜 List the contents of the current directory.
@@ -97,6 +101,16 @@ Available Commands:
     df: 💾 Show disk space usage.
     neofetch: 💻 Display simulated system info in style.
     neofetch -r: 🛠️ Run the real neofetch (Linux systems only).
+    mkdir [name]: 📁 Create a new directory.
+    touch [name]: 📝 Create a new empty file.
+    rm [name]: 🗑️ Delete a file.
+    cp [source] [destination]: 📄 Copy a file.
+    mv [source] [destination]: 🚚 Move or rename a file.
+    whoami: 🙋 Display the current username.
+    uname -a: 🖥️ Display system information.
+    id: 🔍 Display user ID information.
+    ping [host]: 🌐 Ping a host to test connectivity.
+    cowsay [text]: 🐮 Generate a cow saying the given text.
             `;
         } else if (inputText === 'uptime') {
             output.innerHTML += `\nUp for 3 days, 12 hours, 45 minutes`;
@@ -137,7 +151,83 @@ RAM: 16GB                            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⢿⣿⣿�
 ⠀⠀⢈⠒⡀⠀⠀⠀⠀⠈⢛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⢀⠐⡀⠀
 ⣀⢠⠊⢀⠰⠀⠀⠀⠠⢀⠀⢐⡈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠠⠈⡐⠂⠐⡄⢀       
             `;
-        } else {
+        } else if (inputText.startsWith('mkdir ')) {
+            const dirName = inputText.split(' ')[1];
+            if (dirName) {
+                output.innerHTML += `\nCreated directory '${dirName}'`;
+            } else {
+                output.innerHTML += `\nPlease specify a directory name.`;
+            }
+        } else if (inputText.startsWith('touch ')) {
+            const fileName = inputText.split(' ')[1];
+            if (fileName) {
+                output.innerHTML += `\nCreated file '${fileName}'`;
+            } else {
+                output.innerHTML += `\nPlease specify a file name.`;
+            }
+        } else if (inputText.startsWith('rm ')) {
+            const fileName = inputText.split(' ')[1];
+            if (fileName) {
+                output.innerHTML += `\nDeleted file '${fileName}'`;
+            } else {
+                output.innerHTML += `\nPlease specify a file name to delete.`;
+            }
+        } else if (inputText.startsWith('cp ')) {
+            const args = inputText.split(' ');
+            if (args.length === 3) {
+                output.innerHTML += `\nCopied '${args[1]}' to '${args[2]}'`;
+            } else {
+                output.innerHTML += `\nUsage: cp [source] [destination]`;
+            }
+        } else if (inputText.startsWith('mv ')) {
+            const args = inputText.split(' ');
+            if (args.length === 3) {
+                output.innerHTML += `\nMoved '${args[1]}' to '${args[2]}'`;
+            } else {
+                output.innerHTML += `\nUsage: mv [source] [destination]`;
+            }
+        } else if (inputText === 'whoami') {
+            output.innerHTML += '\nuser';
+        } else if (inputText === 'uname -a') {
+            output.innerHTML += '\nLinux troll-os 5.15.0-56-generic #62~20.04.1-Ubuntu SMP x86_64 GNU/Linux';
+        } else if (inputText === 'id') {
+            output.innerHTML += '\nuid=1000(user) gid=1000(user) groups=1000(user),27(sudo)';
+        } else if (inputText === 'uptime') {
+            output.innerHTML += '\n12:15:32 up 2 days, 4:13, 1 user, load average: 0.01, 0.05, 0.10';
+        } else if (inputText.startsWith('ping ')) {
+            const host = inputText.split(' ')[1];
+            if (host) {
+                output.innerHTML += `\nPING ${host} (127.0.0.1): 56 data bytes\n64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.042 ms`;
+            } else {
+                output.innerHTML += `\nPlease specify a host to ping.`;
+            }
+        } 
+        
+        else if (inputText.startsWith('cowsay ')) {
+            // Récupère le texte après 'cowsay'
+            const message = inputText.slice(7).trim();
+            
+            // Calcule la longueur du message et ajuste les traits
+            const topBottomLine = '-'.repeat(message.length + 2);
+            const padding = ' '.repeat(3);
+            
+            // Construit et affiche la vache avec le texte
+            output.innerHTML += `\n
+        ${padding} ${'_'.repeat(message.length + 4)}
+        ${padding}/ ${' '.repeat(message.length + 2)} \\
+        ${padding}| ${message} |
+        ${padding}\\ ${'-'.repeat(message.length + 2)} /
+        ${padding} ${'-'.repeat(message.length + 4)}
+                \\   ^__^
+                 \\  (oo)\\_______
+                    (__)\\       )\\/\\
+                        ||----w |
+                        ||     ||
+            `;
+        }
+        
+        
+         else {
             output.innerHTML += `\nCommand not found: ${inputText}`;
         }
 
