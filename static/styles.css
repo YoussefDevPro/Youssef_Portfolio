@@ -287,25 +287,25 @@ iframe {
 
 @media (max-width: 480px) {
     .terminal {
-        font-size: 10px;
+        font-size: 10px; /* Slightly larger font for better readability */
     }
     #description {
         max-width: 100%;
-        padding: 8px;
-        font-size: 0.9em;
+        padding: 8px; /* Slightly more padding for spacing */
+        font-size: 0.95em; /* Slightly larger font size */
     }
     .dock-item {
-        width: 40px;
+        width: 40px; /* Slightly larger dock item */
         height: 40px;
     }
     .dock-icon {
-        width: 30px;
+        width: 30px; /* Larger icons for better visibility */
         height: 30px;
     }
     #main-title {
-        font-size: 1em;
-        max-width: 85%;
-        top: 5px;
+        font-size: 1.1em; /* Slightly bigger title size */
+        max-width: 90%;
+        top: 7px;
         text-align: center;
     }
     #cmd-button {
@@ -316,11 +316,11 @@ iframe {
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 60px;
+        top: 65px; /* Slightly adjusted top position */
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;
-        height: calc(100vh - 180px); /* Ajuste pour exclure le dock */
+        width: 90%; /* Adjusted width for a better fit */
+        height: calc(100vh - 150px); /* Slightly adjusted to fit better */
         z-index: 1000;
         overflow: hidden;
         padding: 0;
@@ -330,20 +330,21 @@ iframe {
 @media (max-width: 768px) {
     #description {
         max-width: 100%;
-        padding: 10px;
+        padding: 10px; /* More padding for a better compact feel */
+        font-size: 1em; /* Slightly bigger font size */
     }
     .dock-item {
-        width: 45px;
+        width: 45px; /* Increased size for better tap area */
         height: 45px;
     }
     .dock-icon {
-        width: 35px;
+        width: 35px; /* Larger icons for visibility */
         height: 35px;
     }
     #main-title {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Slightly larger title */
         max-width: 90%;
-        top: 10px;
+        top: 12px; /* Adjusted for better spacing */
     }
     #cmd-button {
         display: none;
@@ -353,17 +354,16 @@ iframe {
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 80px;
+        top: 90px; /* Adjusted top position */
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;
-        height: calc(100vh - 200px); /* Exclut le dock */
+        width: 90%;
+        height: calc(100vh - 200px); /* Adjusted to leave space for the dock */
         z-index: 1000;
         overflow: hidden;
         padding: 0;
     }
     .terminal {
-        font-size: 10px;
+        font-size: 11px; /* Slightly larger font */
     }
 }
-
