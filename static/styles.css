@@ -120,11 +120,11 @@ body {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 10000000;
 }
 
 #dock-container::before {
@@ -144,7 +144,7 @@ body {
     display: flex;
     gap: 20px;
     padding: 5px 20px;
-    z-index: 10;
+    z-index: 1001; /* Assurez-vous que le dock soit devant tout */
 }
 
 .dock-item {
@@ -287,23 +287,23 @@ iframe {
 
 @media (max-width: 480px) {
     .terminal {
-        font-size: 10px; /* Slightly larger font for better readability */
+        font-size: 10px; /* Taille de police légèrement plus grande pour une meilleure lisibilité */
     }
     #description {
         max-width: 100%;
-        padding: 8px; /* Slightly more padding for spacing */
-        font-size: 0.95em; /* Slightly larger font size */
+        padding: 8px;
+        font-size: 0.95em;
     }
     .dock-item {
-        width: 40px; /* Slightly larger dock item */
+        width: 40px;
         height: 40px;
     }
     .dock-icon {
-        width: 30px; /* Larger icons for better visibility */
+        width: 30px;
         height: 30px;
     }
     #main-title {
-        font-size: 1.1em; /* Slightly bigger title size */
+        font-size: 1.1em;
         max-width: 90%;
         top: 7px;
         text-align: center;
@@ -316,12 +316,12 @@ iframe {
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 65px; /* Slightly adjusted top position */
+        top: 65px;
         left: 50%;
         transform: translateX(-50%);
-        width: 90%; /* Adjusted width for a better fit */
-        height: calc(100vh - 150px); /* Slightly adjusted to fit better */
-        z-index: 1000;
+        width: 90%;
+        height: calc(100vh - 150px);
+        z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
         overflow: hidden;
         padding: 0;
     }
@@ -330,21 +330,21 @@ iframe {
 @media (max-width: 768px) {
     #description {
         max-width: 100%;
-        padding: 10px; /* More padding for a better compact feel */
-        font-size: 1em; /* Slightly bigger font size */
+        padding: 10px;
+        font-size: 1em;
     }
     .dock-item {
-        width: 45px; /* Increased size for better tap area */
+        width: 45px;
         height: 45px;
     }
     .dock-icon {
-        width: 35px; /* Larger icons for visibility */
+        width: 35px;
         height: 35px;
     }
     #main-title {
-        font-size: 1.2em; /* Slightly larger title */
+        font-size: 1.2em;
         max-width: 90%;
-        top: 12px; /* Adjusted for better spacing */
+        top: 12px;
     }
     #cmd-button {
         display: none;
@@ -354,16 +354,16 @@ iframe {
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 90px; /* Adjusted top position */
+        top: 90px;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
-        height: calc(100vh - 200px); /* Adjusted to leave space for the dock */
-        z-index: 1000;
+        height: calc(100vh - 200px);
+        z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
         overflow: hidden;
         padding: 0;
     }
     .terminal {
-        font-size: 11px; /* Slightly larger font */
+        font-size: 11px;
     }
 }
