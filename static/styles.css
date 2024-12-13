@@ -320,7 +320,7 @@ iframe {
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
-        height: calc(100vh - 150px);
+        height: calc(100vh - 65px);
         z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
         overflow: hidden;
         padding: 0;
@@ -358,7 +358,7 @@ iframe {
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
-        height: calc(100vh - 200px);
+        height: calc(100vh - 90px);
         z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
         overflow: hidden;
         padding: 0;
