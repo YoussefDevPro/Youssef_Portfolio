@@ -282,6 +282,47 @@ iframe {
     z-index: 1000;
 }
 
+
+
+@media (max-width: 480px) {
+    #description {
+        max-width: 100%;
+        padding: 8px;
+        font-size: 0.9em; /* Réduit légèrement la taille du texte */
+    }
+    .dock-item {
+        width: 40px;
+        height: 40px;
+    }
+    .dock-icon {
+        width: 30px;
+        height: 30px;
+    }
+    #main-title {
+        font-size: 1em; /* Réduit encore la taille du titre */
+        max-width: 85%;
+        top: 5px;
+        text-align: center; /* Centre le texte sur les très petits écrans */
+    }
+    #cmd-button {
+        display: none;
+    }
+    #iframe-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Toujours pleine largeur */
+        height: calc(100vh - 150px); /* Ajuste la hauteur */
+        z-index: 1000;
+        overflow: hidden;
+        padding: 0;
+    }
+}
+
 @media (max-width: 768px) {
     #description {
         max-width: 100%;
@@ -298,6 +339,7 @@ iframe {
     #main-title {
         font-size: 1.2em;
         max-width: 90%;
+        top: 10px;
     }
     #cmd-button {
         display: none;
@@ -307,11 +349,11 @@ iframe {
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 100px;
+        top: 80px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;  /* Utilise toute la largeur disponible */
-        height: calc(100vh - 280px); /* Laisse de la place pour la barre de navigation */
+        height: calc(100vh - 180px); /* Ajuste la hauteur pour éviter de chevaucher les boutons */
         z-index: 1000;
         overflow: hidden;  /* Évite tout défilement non souhaité */
         padding: 0;  /* Enlève tout padding superflu */
