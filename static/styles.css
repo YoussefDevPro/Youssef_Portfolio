@@ -4,6 +4,7 @@ body {
     padding: 0;
     height: 100vh;
     display: flex;
+    overflow: hidden    ;
     justify-content: center;
     align-items: flex-start;
     background-color: #121212; /* Fond sombre */
@@ -285,10 +286,13 @@ iframe {
 
 
 @media (max-width: 480px) {
+    .terminal {
+        font-size: 10px;
+    }
     #description {
         max-width: 100%;
         padding: 8px;
-        font-size: 0.9em; /* Réduit légèrement la taille du texte */
+        font-size: 0.9em;
     }
     .dock-item {
         width: 40px;
@@ -299,10 +303,10 @@ iframe {
         height: 30px;
     }
     #main-title {
-        font-size: 1em; /* Réduit encore la taille du titre */
+        font-size: 1em;
         max-width: 85%;
         top: 5px;
-        text-align: center; /* Centre le texte sur les très petits écrans */
+        text-align: center;
     }
     #cmd-button {
         display: none;
@@ -315,8 +319,8 @@ iframe {
         top: 60px;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%; /* Toujours pleine largeur */
-        height: calc(100vh - 150px); /* Ajuste la hauteur */
+        width: 100%;
+        height: calc(100vh - 180px); /* Ajuste pour exclure le dock */
         z-index: 1000;
         overflow: hidden;
         padding: 0;
@@ -329,12 +333,12 @@ iframe {
         padding: 10px;
     }
     .dock-item {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
     .dock-icon {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
     #main-title {
         font-size: 1.2em;
@@ -352,10 +356,14 @@ iframe {
         top: 80px;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;  /* Utilise toute la largeur disponible */
-        height: calc(100vh - 180px); /* Ajuste la hauteur pour éviter de chevaucher les boutons */
+        width: 100%;
+        height: calc(100vh - 200px); /* Exclut le dock */
         z-index: 1000;
-        overflow: hidden;  /* Évite tout défilement non souhaité */
-        padding: 0;  /* Enlève tout padding superflu */
+        overflow: hidden;
+        padding: 0;
+    }
+    .terminal {
+        font-size: 10px;
     }
 }
+
