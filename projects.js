@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         project.style.opacity = 1;
         project.style.transform = "translateY(0)"; // Ajoute un léger mouvement vers le haut
-      }, index * 500); // Décale chaque projet de 500ms
+      }, index * 750); // Décale chaque projet de 500ms
     });
   });
   
