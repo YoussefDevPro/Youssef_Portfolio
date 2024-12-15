@@ -331,7 +331,7 @@ iframe {
         pointer-events: auto; /* Active les interactions */
     }
     .dock-item:hover .dock-icon {
-        transform: scale(1);
+        transform: none;
     }
 }
 
@@ -383,6 +383,6 @@ iframe {
         height: 75px;
     }
     .dock-item:hover .dock-icon {
-        transform: scale(1);
+        transform: none;
     }
 }
