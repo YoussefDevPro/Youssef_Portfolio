@@ -176,3 +176,8 @@ a {
     transform: scale(1.1); /* Augmenter l'épaisseur du texte au survol */
   }
   
+  .project-item {
+    opacity: 0;
+    transform: translateY(20px); /* Légèrement en bas pour l'effet de mouvement */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation fluide */
+}
