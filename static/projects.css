@@ -2,6 +2,10 @@
     transition: all 0.3s ease-in-out;
 }
 
+body {
+    margin-bottom: 150px;
+
+}
 
 /* Style général pour l'élément .project-item */
 .project-item {

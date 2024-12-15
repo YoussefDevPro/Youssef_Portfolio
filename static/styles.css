@@ -316,6 +316,8 @@ iframe {
         justify-content: center;
         align-items: center;
         position: absolute;
+        pointer-events: auto; /* Active les interactions */
+    overflow: visible;
         top: 65px;
         left: 50%;
         transform: translateX(-50%);
@@ -324,6 +326,12 @@ iframe {
         z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
         overflow: hidden;
         padding: 0;
+    }
+    iframe {
+        pointer-events: auto; /* Active les interactions */
+    }
+    .dock-item:hover .dock-icon {
+        transform: scale(1);
     }
 }
 
@@ -334,12 +342,12 @@ iframe {
         font-size: 1em;
     }
     .dock-item {
-        width: 45px;
-        height: 45px;
+        width: 55px;
+        height: 55px;
     }
     .dock-icon {
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
     }
     #main-title {
         font-size: 1.2em;
@@ -352,18 +360,29 @@ iframe {
     #iframe-container {
         display: flex;
         justify-content: center;
+        pointer-events: auto; /* Active les interactions */
+    overflow: visible;
         align-items: center;
         position: absolute;
-        top: 90px;
+        top: 70px;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
-        height: calc(100vh - 90px);
+        height: calc(100vh - 70px);
         z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
         overflow: hidden;
         padding: 0;
     }
+    iframe {
+        pointer-events: auto; /* Active les interactions */
+    }
     .terminal {
-        font-size: 11px;
+        font-size: 15px;
+    }
+    #dock-container::before {
+        height: 75px;
+    }
+    .dock-item:hover .dock-icon {
+        transform: scale(1);
     }
 }

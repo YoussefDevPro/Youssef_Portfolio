@@ -116,7 +116,7 @@ window.onload = () => {
             iframeSection.id = 'iframe-container';
             iframeSection.className = "iframe-scroll";
             iframeSection.innerHTML = `
-                <iframe src="projects.html" style="width: 100%; height: 100%; border: none;"></iframe>`;
+                <iframe src="projects.html" style="width: 100%; height: 100%; border: none;allow="fullscreen" style="pointer-events: auto;"></iframe>`;
             mainContent.appendChild(iframeSection);
         } else if (contentType === 'cmd') {
             let iframeSection = document.createElement('div');
