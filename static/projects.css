@@ -18,7 +18,8 @@ body {
     box-shadow: 0 0 15px rgba(208, 208, 208, 0.2); /* Ombre claire */
     transition: all 0.3s ease-in-out;
     width: calc(80% - 60px);
-    margin-bottom: 20px;
+    max-width: 1200px;
+    margin-bottom: 40px;
     height: auto;
     position: relative;
     box-sizing: border-box;
@@ -51,13 +52,13 @@ body {
 /* Titre du projet */
 .project-text h2 {
     margin: 0 0 10px 0;
-    font-size: 1.4em;
+    font-size: 1.6em;
     align-self: flex-start;
 }
 
 /* Description du projet */
 .project-text p {
-    font-size: 0.9em;
+    font-size: 1.2em;
     margin-top: 8px;
     line-height: 1.4;
 }
@@ -80,13 +81,13 @@ body {
 .projects-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px;
 }
 
 /* Image de projet */
 .project-image {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
     margin-right: 15px;
@@ -97,7 +98,7 @@ body {
 /* Effet au survol de l'image */
 .project-item:hover .project-image {
     box-shadow: 0 0 20px rgba(208, 208, 208, 0.7); /* Grosse ombre claire au survol */
-    transform: scale(1.05); /* Agrandit l'image */
+    transform: scale(1.01); /* Agrandit l'image */
 }
 
 /* Animation de l'iframe */
