@@ -104,13 +104,13 @@ window.onload = () => {
 
         if (contentType === 'phone') {
             contentContainer.innerHTML = `
-                <p>I don’t use a phone or email for contact, but you can always hit me up on Discord! 😎</p>
+                <p>I don't use a phone or email for contact, but you can always hit me up on Discord! 😎</p>
                 <p><strong>youssef_developper</strong></p>`;
         } else if (contentType === 'about') {
             contentContainer.innerHTML = `
-                <p>Hey! I’m a 14yo fullstack dev who loves coding, learning, and pulling fun nerdy pranks. 😏</p>
-                <p>I work with Python, C#, JS, HTML & CSS to build cool sites, apps, and random scripts. 🛠️</p>
-                <p>When I’m not coding, I’m chilling on Discord, trying out new tech, or dreaming up my next prank. 👾</p>`;
+                <p>Hey! I'm a 14yo fullstack dev who loves coding, learning, and pulling fun nerdy pranks. 😏
+                I work with Python, C#, JS, HTML & CSS to build cool sites, apps, and random scripts. 🛠️
+                When I'm not coding, I'm chilling on Discord, trying out new tech, or dreaming up my next prank. 👾</p>`;
         } else if (contentType === 'folder') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
@@ -128,7 +128,7 @@ window.onload = () => {
         } else {
             contentContainer.innerHTML = `
                 <p>🌟👨‍💻 Yo, I'm a young fullstack dev! 👾</p>
-                <p>I work with Python, C#, JS, HTML & CSS to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I’m not coding, I’m geeking out on Discord (Face’s server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
+                <p>I work with Python, C#, JS, HTML & CSS to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I'm not coding, I'm geeking out on Discord (Face's server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
         }
         
     }

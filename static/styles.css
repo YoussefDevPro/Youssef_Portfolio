@@ -204,6 +204,7 @@ body {
     text-align: center; /* Centre le texte à l'intérieur de description */
     max-width: 800px; /* Limite la largeur de la description pour qu'elle ne s'étende trop */
     margin-top: 80px; /* Ajoute de l'espace sous le titre */
+    font-size: 1.3em;
     margin-bottom: 100px; /* Ajoute de l'espace entre la description et le dock */
 }
 
