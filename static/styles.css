@@ -273,7 +273,7 @@ iframe {
     width: 100%;  /* Utilise toute la largeur disponible */
     height: calc(100vh - 220px); /* Laisse de la place pour la barre de navigation */
     z-index: 1000;
-    overflow: hidden;  /* Évite tout défilement non souhaité */
+    overflow: auto;  /* Autorise le défilement */
     padding: 0;  /* Enlève tout padding superflu */
 }
 
@@ -289,7 +289,7 @@ iframe {
 
 @media (max-width: 480px) {
     .terminal {
-        font-size: 10px; /* Taille de police légèrement plus grande pour une meilleure lisibilité */
+        font-size: 12px; /* Taille ajustée pour la lisibilité */
     }
     #description {
         max-width: 100%;
@@ -319,18 +319,19 @@ iframe {
         align-items: center;
         position: absolute;
         pointer-events: auto; /* Active les interactions */
-    overflow: visible;
+        overflow: hidden; /* Évite les débordements */
         top: 65px;
         left: 50%;
         transform: translateX(-50%);
-        width: 90%;
-        height: calc(100vh - 65px);
-        z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
-        overflow: hidden;
-        padding: 0;
+        width: 100%; /* Largeur complète */
+        height: calc(100vh - 65px); /* Hauteur ajustée */
+        z-index: 1; /* Derrière le dock */
+        padding: 0; /* Enlève les marges */
     }
     iframe {
         pointer-events: auto; /* Active les interactions */
+        width: 100%;
+        height: 100%; /* Prend toute la hauteur */
     }
     .dock-item:hover .dock-icon {
         transform: none;
@@ -362,21 +363,22 @@ iframe {
     #iframe-container {
         display: flex;
         justify-content: center;
-        pointer-events: auto; /* Active les interactions */
-    overflow: visible;
         align-items: center;
         position: absolute;
+        pointer-events: auto; /* Active les interactions */
+        overflow: hidden; /* Évite les débordements */
         top: 70px;
         left: 50%;
         transform: translateX(-50%);
-        width: 90%;
-        height: calc(100vh - 70px);
-        z-index: 1; /* Assurez-vous que l'iframe soit derrière le dock */
-        overflow: hidden;
-        padding: 0;
+        width: 100%; /* Largeur complète */
+        height: calc(100vh - 70px); /* Hauteur ajustée */
+        z-index: 1; /* Derrière le dock */
+        padding: 0; /* Enlève les marges */
     }
     iframe {
         pointer-events: auto; /* Active les interactions */
+        width: 100%;
+        height: 100%; /* Prend toute la hauteur */
     }
     .terminal {
         font-size: 15px;
