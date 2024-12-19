@@ -12,6 +12,13 @@ window.onload = () => {
         { text: "Welcome to my Portfolio !", delay: 1200 }
     ];
 
+    if (window.innerWidth <= 768) {
+        terminalMessages = terminalMessages.map(message => ({
+            text: message.text,
+            delay: 0  // Mettre les délais à 0 pour les téléphones
+        }));
+    }
+
     let messageIndex = 0;
     let currentInterval = null;
     let skip = false;
@@ -113,13 +120,38 @@ window.onload = () => {
 
         if (contentType === 'phone') {
             contentContainer.innerHTML = `
-                <p>I don't use a phone or email for contact, but you can always hit me up on Discord! 😎</p>
-                <p><strong>youssef_developper</strong></p>`;
+                <p>I don't use a phone or email for contact, but you can always hit me up on <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=flat-square" alt="Discord">! 😎</p>
+<p>
+    <strong>youssef_developper</strong> 
+</p>
+`;
         } else if (contentType === 'about') {
             contentContainer.innerHTML = `
                 <p>Hey! I'm a 14yo fullstack dev who loves coding, learning, and pulling fun nerdy pranks. 😏
-                I work with Python, C#, JS, HTML & CSS to build cool sites, apps, and random scripts. 🛠️
-                When I'm not coding, I'm chilling on Discord, trying out new tech, or dreaming up my next prank. 👾</p>`;
+    I work with 
+    <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="Python">
+    <img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="C#">
+    <img src="https://img.shields.io/badge/-JS-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="JavaScript">
+    <img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="HTML">
+    <img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="CSS">
+    and actually learning 
+    <img src="https://img.shields.io/badge/-Go-00ADD8?logo=go&logoColor=white&style=flat-square" alt="Go">
+    <img src="https://img.shields.io/badge/-Rust-000000?logo=rust&logoColor=white&style=flat-square" alt="Rust">
+    to build cool sites, apps, and random scripts. 🛠️  
+    When I'm not coding, I'm chilling on Discord, trying out new tech, or dreaming up my next prank. 👾
+</p>
+<p>I also use these tools like
+    <img src="https://img.shields.io/badge/-VS%20Code-007ACC?logo=visual-studio-code&logoColor=white&style=flat-square" alt="VS Code">
+    <img src="https://img.shields.io/badge/-PyCharm-000000?logo=pycharm&logoColor=white&style=flat-square" alt="PyCharm">
+    <img src="https://img.shields.io/badge/-Rider-000000?logo=rider&logoColor=white&style=flat-square" alt="Rider">
+    <img src="https://img.shields.io/badge/-GoLand-000000?logo=goland&logoColor=white&style=flat-square" alt="GoLand">
+    <img src="https://img.shields.io/badge/-RustRover-000000?logo=rust&logoColor=white&style=flat-square" alt="RustRover">
+    <img src="https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=flat-square" alt="Git">
+    <img src="https://img.shields.io/badge/-Arch-1793D1?logo=arch-linux&logoColor=white&style=flat-square" alt="Arch Linux">
+    <img src="https://img.shields.io/badge/-Hyprland-0A1318?logo=linux&logoColor=white&style=flat-square" alt="Hyprland">
+    for coding and managing my projects! 🔧
+</p>
+`;
         } else if (contentType === 'folder') {
             let iframeSection = document.createElement('div');
             iframeSection.id = 'iframe-container';
@@ -136,8 +168,17 @@ window.onload = () => {
             mainContent.appendChild(iframeSection);
         } else {
             contentContainer.innerHTML = `
-                <p>🌟👨‍💻 Yo, I'm a young fullstack dev! 👾</p>
-                <p>I work with Python, C#, JS, HTML & CSS to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I'm not coding, I'm geeking out on Discord (Face's server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
+                <div id="description">
+            <p>🌟👨‍💻 Yo, I'm a young fullstack dev! 👾</p>
+            <p>I work with 
+                <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="Python">
+                <img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="C#">
+                <img src="https://img.shields.io/badge/-JS-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="JavaScript">
+                <img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="HTML">
+                <img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="CSS">
+                to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I'm not coding, I'm geeking out on Discord (Face's server is 🔥). 🚀 #Nerd4Life 😎👾
+            </p>
+        </div>`;
         }
     }
 

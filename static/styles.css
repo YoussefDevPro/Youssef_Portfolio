@@ -23,6 +23,9 @@
         animation: matrix-text 1s infinite linear;
     }
 
+    img {
+        border-radius: 4px;
+    }
 
     .terminal {
         width: 100%;
@@ -138,7 +141,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 5px;
+        padding: 2px;
         background: rgba(255, 255, 255, 0.15);
         border-radius: 25px;
         transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
