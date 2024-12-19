@@ -3,7 +3,7 @@ window.onload = () => {
     let terminal = document.getElementById('terminal');
     let loadingSection = document.getElementById('loading');
     let mainContent = document.getElementById('main-content');
-    
+
     let terminalMessages = [
         { text: "to skip, press shift ...", delay: 400 },
         { text: "Booting up ...", delay: 500 },
@@ -11,10 +11,13 @@ window.onload = () => {
         { text: "Starting processes ...", delay: 1000 },
         { text: "Welcome to my Portfolio !", delay: 1200 }
     ];
-    
+
     let messageIndex = 0;
     let currentInterval = null;
     let skip = false;
+
+    // Détection mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     function typeMessage(message, index, callback) {
         let i = 0;
@@ -27,7 +30,7 @@ window.onload = () => {
                 currentInterval = null;
                 callback();
             }
-        }, 50); // Réduit à 50ms
+        }, 50);
     }
 
     function skipToMainContent() {
@@ -44,7 +47,7 @@ window.onload = () => {
         setTimeout(() => {
             terminal.style.display = 'none';
             showLoading();
-        }, 500); // Transition plus courte
+        }, 500);
     }
 
     function showTerminalMessages() {
@@ -67,7 +70,7 @@ window.onload = () => {
         mainContent.classList.remove('hidden');
         mainContent.classList.add('visible');
     }
-        
+
     function showLoading() {
         if (skip) {
             skipToMainContent();
@@ -83,8 +86,8 @@ window.onload = () => {
             setTimeout(() => {
                 loadingSection.classList.add('hidden');
                 showMainContent();
-            }, 500); // Plus rapide
-        }, 3000); // Durée réduite à 3 secondes
+            }, 500);
+        }, 3000);
     }
 
     window.addEventListener('keydown', (event) => {
@@ -93,8 +96,14 @@ window.onload = () => {
         }
     });
 
-    showTerminalMessages();
-    
+    // Saut vers le contenu principal si sur mobile
+    if (isMobile) {
+        skipToMainContent();
+    } else {
+        showTerminalMessages();
+    }
+
+    // Changer le contenu en fonction du type
     function changeContent(contentType) {
         let contentContainer = document.getElementById('description');
         let iframeContainer = document.getElementById('iframe-container');
@@ -116,7 +125,7 @@ window.onload = () => {
             iframeSection.id = 'iframe-container';
             iframeSection.className = "iframe-scroll";
             iframeSection.innerHTML = `
-                <iframe src="projects.html" style="width: 100%; height: 100%; border: none;allow="fullscreen" style="pointer-events: auto;"></iframe>`;
+                <iframe src="projects.html" style="width: 100%; height: 100%; border: none;" allow="fullscreen"></iframe>`;
             mainContent.appendChild(iframeSection);
         } else if (contentType === 'cmd') {
             let iframeSection = document.createElement('div');
@@ -130,9 +139,9 @@ window.onload = () => {
                 <p>🌟👨‍💻 Yo, I'm a young fullstack dev! 👾</p>
                 <p>I work with Python, C#, JS, HTML & CSS to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I'm not coding, I'm geeking out on Discord (Face's server is 🔥). 🚀 #Nerd4Life 😎👾</p>`;
         }
-        
     }
 
+    // Gestion des boutons
     document.getElementById('phone-button').addEventListener('click', () => changeContent('phone'));
     document.getElementById('about-button').addEventListener('click', () => changeContent('about'));
     document.getElementById('folder-button').addEventListener('click', () => changeContent('folder'));

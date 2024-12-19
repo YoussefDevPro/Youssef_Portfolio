@@ -1,10 +1,11 @@
+/* Transitions générales */
 * {
     transition: all 0.3s ease-in-out;
+    animation: matrix-text 1s infinite linear;
 }
 
 body {
     margin-bottom: 150px;
-
 }
 
 /* Style général pour l'élément .project-item */
@@ -12,30 +13,23 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: #121212; /* Fond principal sombre */
+    background: #121212;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(208, 208, 208, 0.2); /* Ombre claire */
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(208, 208, 208, 0.2);
     width: calc(80% - 60px);
     max-width: 1200px;
-    margin-bottom: 40px;
+    margin: 0 auto 10px;
     height: auto;
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
-    margin: 0 auto;
-    border: 3px solid #888; /* Bordure gris moyen */
-    color: #D0D0D0; /* Texte gris clair */
+    border: 3px solid #888;
+    color: #D0D0D0;
     font-family: 'Courier New', monospace;
-    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-/* Effet d'agrandissement et de changement de bordure au survol */
-.project-item:hover {
-    transform: scale(1.005);
-    border-color: #888; /* Bordure plus claire au survol */
-    box-shadow: 0 0 20px rgba(208, 208, 208, 0.4); /* Lueur claire */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* Texte projet avec effet Matrix */
@@ -73,15 +67,11 @@ body {
     }
 }
 
-* {
-    animation: matrix-text 1s infinite linear;
-}
-
 /* Container des projets */
 .projects-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 10px;
 }
 
 /* Image de projet */
@@ -89,29 +79,36 @@ body {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
     margin-right: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(208, 208, 208, 0.5); /* Ombre claire */
+    box-shadow: 0 0 10px rgba(208, 208, 208, 0.5);
+    transition: all 0.3s ease;
 }
 
 /* Effet au survol de l'image */
 .project-item:hover .project-image {
-    box-shadow: 0 0 20px rgba(208, 208, 208, 0.7); /* Grosse ombre claire au survol */
-    transform: scale(1.01); /* Agrandit l'image */
+    box-shadow: 0 0 20px rgba(208, 208, 208, 0.7);
+    transform: scale(1.05);
+}
+
+/* Effet d'agrandissement et de changement de bordure au survol */
+.project-item:hover {
+    transform: scale(1.02);
+    border-color: #aaa;
+    box-shadow: 0 0 25px rgba(208, 208, 208, 0.5);
 }
 
 /* Animation de l'iframe */
 iframe {
     width: 100%;
-    height: calc(100vh - 220px); /* Ajuste la hauteur */
+    height: calc(100vh - 220px);
     border: none;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     opacity: 0;
-    transition: opacity 1s ease-in-out; /* Animation fade-in */
+    transition: opacity 1s ease-in-out;
 }
 
 iframe.visible {
@@ -123,14 +120,14 @@ iframe.visible {
     .project-item {
         flex-direction: column;
         align-items: center;
-        padding: 12px; /* Réduit le padding */
+        padding: 12px;
         width: 90%;
         justify-content: center;
-        min-height: 250px; /* Réduit la hauteur min */
+        min-height: 250px;
     }
 
     .project-image {
-        width: 130px; /* Réduit l'image */
+        width: 130px;
         height: 130px;
     }
 
@@ -140,45 +137,45 @@ iframe.visible {
     }
 
     iframe {
-        height: calc(100vh - 130px); /* Ajuste la hauteur de l'iframe */
+        height: calc(100vh - 130px);
     }
 }
 
 @media (max-width: 480px) {
     .project-item {
-        padding: 8px; /* Moins de padding */
+        padding: 8px;
         width: 95%;
     }
 
     .project-image {
-        width: 100px; /* Réduit l'image */
+        width: 100px;
         height: 100px;
     }
 
     .project-text h2 {
-        font-size: 1.2em; /* Réduit la taille du titre */
+        font-size: 1.2em;
     }
 
     .project-text p {
-        font-size: 0.8em; /* Réduit la taille du texte */
+        font-size: 0.8em;
     }
 }
 
+/* Liens */
 a {
-    color: white; /* Texte du lien en blanc */
-    font-weight: bold; /* Texte du lien en gras */
-    text-decoration: none; /* Retirer le soulignement par défaut */
-    transition: all 0.3s ease-in-out; /* Transition douce */
-  }
-  
-  a:hover {
-    color: #ffffff; /* Changer la couleur lors du survol (par exemple, rose) */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ffffff;
     font-weight: bolder;
-    transform: scale(1.1); /* Augmenter l'épaisseur du texte au survol */
-  }
-  
-  .project-item {
-    opacity: 0;
-    transform: translateY(20px); /* Légèrement en bas pour l'effet de mouvement */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Animation fluide */
+    transform: scale(1.1);
+}
+
+/* Style de la scrollbar (invisible) */
+::-webkit-scrollbar {
+    display: none;
 }
