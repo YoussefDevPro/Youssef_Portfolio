@@ -15,7 +15,7 @@ window.onload = () => {
     if (window.innerWidth <= 768) {
         terminalMessages = terminalMessages.map(message => ({
             text: message.text,
-            delay: 0  // Mettre les délais à 0 pour les téléphones
+            delay: 400  // Mettre les délais à 0 pour les téléphones
         }));
     }
 
@@ -105,7 +105,7 @@ window.onload = () => {
 
     // Saut vers le contenu principal si sur mobile
     if (isMobile) {
-        skipToMainContent();
+        showLoading();
     } else {
         showTerminalMessages();
     }
@@ -129,14 +129,14 @@ window.onload = () => {
             contentContainer.innerHTML = `
                 <p>Hey! I'm a 14yo fullstack dev who loves coding, learning, and pulling fun nerdy pranks. 😏
     I work with 
-    <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="Python">
-    <img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="C#">
-    <img src="https://img.shields.io/badge/-JS-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="JavaScript">
-    <img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="HTML">
-    <img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="CSS">
+    <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="Python" class="python">
+    <img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="C#" class="cs">
+    <img src="https://img.shields.io/badge/-JS-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="JavaScript" class="js">
+    <img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="HTML" class="html">
+    <img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="CSS" class="css">
     and actually learning 
-    <img src="https://img.shields.io/badge/-Go-00ADD8?logo=go&logoColor=white&style=flat-square" alt="Go">
-    <img src="https://img.shields.io/badge/-Rust-000000?logo=rust&logoColor=white&style=flat-square" alt="Rust">
+    <img src="https://img.shields.io/badge/-Go-00ADD8?logo=go&logoColor=white&style=flat-square" alt="Go" class="go">
+    <img src="https://img.shields.io/badge/-Rust-000000?logo=rust&logoColor=white&style=flat-square" alt="Rust" class="rust">
     to build cool sites, apps, and random scripts. 🛠️  
     When I'm not coding, I'm chilling on Discord, trying out new tech, or dreaming up my next prank. 👾
 </p>

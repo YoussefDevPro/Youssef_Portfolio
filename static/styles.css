@@ -112,6 +112,7 @@
         align-items: center;
         text-align: center;
         max-width: 800px;
+        z-index: 9999999999999999999999999999999;
     }
 
     #description p {
@@ -156,7 +157,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0);
+        background: rgba(255, 255, 255, 0.2);
         border-radius: 25px;
         backdrop-filter: blur(6px);
         z-index: -1;
@@ -277,7 +278,7 @@
 
     @media (max-width: 720px) {
         body {
-            overflow: auto; /* Autorise le défilement sur de petits écrans */
+            overflow: none; /* Autorise le défilement sur de petits écrans */
             height: auto; /* Ajuste la hauteur automatiquement */
         }
     
@@ -286,14 +287,14 @@
         }
     
         #main-title {
-            font-size: 1em; /* Taille réduite pour un titre plus lisible */
+            font-size: 1.5em; /* Taille réduite pour un titre plus lisible */
             margin-top: 10px; /* Ajoute de l'espace au-dessus */
         }
     
         #description {
             max-width: 90%; /* Réduit la largeur pour mieux s'adapter */
             padding: 10px;
-            font-size: 0.8em; /* Taille de police ajustée */
+            font-size: 1.1em; /* Taille de police ajustée */
         }
     
         .dock-icon {
@@ -306,8 +307,8 @@
         }
     
         #iframe-container {
-            top: 70px; /* Ajustement de l'emplacement sous la barre */
-            height: calc(100vh - 70px); /* Laisse l'espace nécessaire */
+            top: 90px; /* Ajustement de l'emplacement sous la barre */
+            height: calc(100vh - 90px); /* Laisse l'espace nécessaire */
             overflow: auto; /* Permet le défilement */
             padding: 0; /* Enlève le padding */
         }
