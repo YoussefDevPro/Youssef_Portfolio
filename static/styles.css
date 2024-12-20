@@ -287,14 +287,14 @@
         }
     
         #main-title {
-            font-size: 1.5em; /* Taille réduite pour un titre plus lisible */
+            font-size: 1.3em; /* Taille réduite pour un titre plus lisible */
             margin-top: 10px; /* Ajoute de l'espace au-dessus */
         }
     
         #description {
             max-width: 90%; /* Réduit la largeur pour mieux s'adapter */
             padding: 10px;
-            font-size: 1.1em; /* Taille de police ajustée */
+            font-size: 0.9em; /* Taille de police ajustée */
         }
     
         .dock-icon {
