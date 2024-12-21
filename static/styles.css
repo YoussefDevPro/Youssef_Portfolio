@@ -25,6 +25,7 @@
 
     img {
         border-radius: 4px;
+        transform: scale(0.8);
     }
 
     .terminal {
