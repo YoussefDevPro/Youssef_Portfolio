@@ -144,6 +144,7 @@ window.onload = () => {
     <img src="https://img.shields.io/badge/-VS%20Code-007ACC?logo=visual-studio-code&logoColor=white&style=flat-square" alt="VS Code">
     <img src="https://img.shields.io/badge/-PyCharm-000000?logo=pycharm&logoColor=white&style=flat-square" alt="PyCharm">
     <img src="https://img.shields.io/badge/-Rider-000000?logo=rider&logoColor=white&style=flat-square" alt="Rider">
+    <img src="https://img.shields.io/badge/-GoLand-000000?logo=goland&logoColor=white&style=flat-square" alt="GoLand">
     <img src="https://img.shields.io/badge/-RustRover-000000?logo=rust&logoColor=white&style=flat-square" alt="RustRover">
     <img src="https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=flat-square" alt="Git">
     <img src="https://img.shields.io/badge/-Arch-1793D1?logo=arch-linux&logoColor=white&style=flat-square" alt="Arch Linux">
