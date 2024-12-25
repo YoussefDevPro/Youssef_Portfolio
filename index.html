@@ -2,62 +2,180 @@
 <html lang="en">
 
 <head>
+    <title>Youssef's Portfolio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youssef's Portfolio</title>
-    <link rel="stylesheet" href="static/styles.css">
-    <link rel="icon" href="static/logo.png" >
-    <link rel="icon" type="image/x-icon" href="/static/frisk.jpg">
+    <meta name="description" content="Welcome to my portfolio! >:3">
+    <link rel="stylesheet" href="static/styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="static/images/project-protfolio.gif">
 </head>
 
 <body>
-    <!-- Terminal Section -->
-    <div id="terminal" class="terminal">
-        <p id="terminal-text"></p>
+
+    <!-- Dock Section -->
+    <div class="dock">
+        <div class="dock-item">
+            <img class="dock-icon" src="static/images/home.png" alt="HOME">
+        </div>
+        <div class="dock-item">
+            <img class="dock-icon" src="static/images/folder.png" alt="FOLDER">
+        </div>
+        <div class="dock-item">
+            <img class="dock-icon" src="static/images/user.png" alt="ABOUT">
+        </div>
+        <div class="dock-item">
+            <img class="dock-icon" src="static/images/phone-call.png" alt="PHONE">
+        </div>
+        <div class="dock-item">
+            <img class="dock-icon" src="static/images/github.png" alt="GITHUB">
+        </div>
     </div>
 
-    <!-- Loading Section -->
-    <div id="loading" class="loading hidden">
-        <img id="main-image" src="static/frisk.png" alt="Image Principale">
-    </div>
+    <!-- Content Section -->
+    <div class="content">
 
-    <!-- Main Content-Section -->
-    <div id="main-content" class="hidden">
-        <h1 id="main-title" >Welcome to Youssef's Portfolio</h1>
-
-        <!-- Description Section -->
-        <div id="description">
-            <p>🌟👨‍💻 Yo, I'm a young fullstack dev! 👾</p>
-            <p>I work with 
-                <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="Python"><img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="C#"><img src="https://img.shields.io/badge/-JS-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="JavaScript"><img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="HTML"><img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="CSS">
-                to build cool stuff. Love solving probs, learning new tech, and trolling for fun. 😏 When I'm not coding, I'm geeking out on Discord (Face's server is 🔥). 🚀 #Nerd4Life 😎👾
+        <!-- Home Section -->
+        <div id="home" class="content-section active">
+            <h1>welcome to my portfolio! >:3</h1>
+            <p class="text float">
+                heya! i'm youssef, a full-stack dev who loves coding with 
+                <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="python"> 
+                <img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="c-sharp"> 
+                <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="javascript"> 
+                <img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="html"> 
+                <img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="css"> 
+                <img src="https://img.shields.io/badge/-Unity-000000?logo=unity&logoColor=white&style=flat-square" alt="unity">
+                . i build cool projects, solve problems, and learn new tech. when i'm not coding, i'm geeking out on discord. hit me up at <strong>youssef-developper</strong> if you wanna collaborate! 🚀
             </p>
         </div>
         
-        
-        <!-- Dock container -->
-        <div id="dock-container">
-            <div class="dock">
-                <div class="dock-item" id="home-button">
-                    <img src="static/home.png" alt="Icon 1" class="dock-icon">
+
+        <!-- Projects Section -->
+        <div id="projects" class="content-section">
+            <h1>My Projects</h1>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project">
+                    <img src="static/images/project-protfolio.gif" alt="Project 1 Image">
+                    <div class="project-info">
+                        <h1>Youssef's Portfolio</h1>
+                        <p>Yo, you're actually in my portfolio! 😎 This site is open-source, so if u wanna check out the code, it's on GitHub. <a target="_blank" href="https://github.com/YoussefDevPro/Youssef_Portfolio">Here's the link</a>.</p>
+                    </div>
                 </div>
-                <div class="dock-item" id="folder-button">
-                    <img src="static/folder.png" alt="Icon 2" class="dock-icon">
+
+                <!-- Project 2 -->
+                <div class="project">
+                    <img src="static/images/project-whatsapp-auti-sender.jpg" alt="Project 2 Image">
+                    <div class="project-info">
+                        <h1>Whatsapp Auto Sender & AI Reply</h1>
+                        <p>So it all started when someone sent me "### #### ## #####" on WhatsApp. I made a program to spam 'em with 1000 msgs using Selenium 😂. Then, I had the idea to create a tool that auto-replies in any chat or group. Check the code on GitHub <a target="_blank" href="https://github.com/YoussefDevPro/Whatsapp-auto-sender">here</a>.</p>
+                    </div>
                 </div>
-                <div class="dock-item" id="cmd-button">
-                    <img src="static/cmd.png" alt="Icon 3" class="dock-icon">
+
+                <!-- Project 3 -->
+                <div class="project">
+                    <img src="static/images/project-mrbeat.jpg" alt="Project 3 Image">
+                    <div class="project-info">
+                        <h1>Mr Beat</h1>
+                        <p>This project uses Audiostream so u can make some beats 🎶 and even add your own sound effects. Wanna see the code? It's on GitHub <a href="https://github.com/YoussefDevPro/MrBeat" target="_blank">here</a>.</p>
+                    </div>
                 </div>
-                <div class="dock-item" id="about-button">
-                    <img src="static/about.png" alt="Icon 4" class="dock-icon">
+
+                <!-- Project 4 -->
+                <div class="project">
+                    <img src="static/images/project-galoix.jpg" alt="Project 4 Image">
+                    <div class="project-info">
+                        <h1>Galoix</h1>
+                        <p>explore the space whit ur spaceship, whit an infinity of travel to do, but beware, u can fall. so u need to restart, and don't forget to get the hightest score, we don't save progress lol, <a href="https://github.com/YoussefDevPro/GALOIX" target="_blank">here is the game</a>, it use kivy and python,</p>
+                    </div>
                 </div>
-                <div class="dock-item" id="phone-button">
-                    <img src="static/phone.png" alt="Icon 5" class="dock-icon">
-                </div>
+
             </div>
         </div>
+
+        <!-- About Section -->
+        <div id="about" class="content-section">
+            <h1>About Me</h1>
+            <p class="text float">Hey! I'm a 14yo fullstack dev who loves coding, learning, and pulling fun nerdy pranks. 😏
+                I work with 
+                <img src="https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=flat-square" alt="Python" class="python">
+                <img src="https://img.shields.io/badge/-C%23-239120?logo=c-sharp&logoColor=white&style=flat-square" alt="C#" class="cs">
+                <img src="https://img.shields.io/badge/-JS-F7DF1E?logo=javascript&logoColor=black&style=flat-square" alt="JavaScript" class="js">
+                <img src="https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat-square" alt="HTML" class="html">
+                <img src="https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat-square" alt="CSS" class="css">
+                and actually learning 
+                <img src="https://img.shields.io/badge/-Go-00ADD8?logo=go&logoColor=white&style=flat-square" alt="Go" class="go">
+                <img src="https://img.shields.io/badge/-Rust-000000?logo=rust&logoColor=white&style=flat-square" alt="Rust" class="rust">
+                to build cool sites, apps, and random scripts. 🛠️  
+                When I'm not coding, I'm chilling on Discord, trying out new tech, or dreaming up my next prank. 👾
+            </p>
+            <div style="height: 20px;"></div>
+            <p class="text float">I also use these tools like
+                <img src="https://img.shields.io/badge/-VS%20Code-007ACC?logo=visual-studio-code&logoColor=white&style=flat-square" alt="VS Code">
+                <img src="https://img.shields.io/badge/-PyCharm-000000?logo=pycharm&logoColor=white&style=flat-square" alt="PyCharm">
+                <img src="https://img.shields.io/badge/-Rider-000000?logo=rider&logoColor=white&style=flat-square" alt="Rider">
+                <img src="https://img.shields.io/badge/-RustRover-000000?logo=rust&logoColor=white&style=flat-square" alt="RustRover">
+                <img src="https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=flat-square" alt="Git">
+                <img src="https://img.shields.io/badge/-Arch-1793D1?logo=arch-linux&logoColor=white&style=flat-square" alt="Arch Linux">
+                <img src="https://img.shields.io/badge/-Hyprland-0A1318?logo=linux&logoColor=white&style=flat-square" alt="Hyprland">
+                for coding and managing my projects! 🔧
+            </p>
+            <div style="height: 20px;"></div>
+            <p class="text float">By the way, I'll be releasing a game soon! >:3</p>
+        </div>
+        
+
+        <!-- Contact Section -->
+        <div id="contact" class="content-section">
+            <h1>Contact Me</h1>
+            <p class="text">I don't use a phone or email for contact, but you can always hit me up on <img src="https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=flat-square" alt="Discord">! 😎</p>
+            <div style="height: 20px;"></div>
+            <p class="text">
+                <strong>youssef_developper</strong> 
+            </p>
+        </div>
+
+        <!-- GitHub Stats Section -->
+        <div id="github-stats" class="content-section">
+            <h1>GitHub Profile</h1>
+            <div class="github-header">
+                <img src="static/images/frisk.png" alt="Profile Picture" id="github-pfp">
+                <h2 id="github-username">YoussefDevPro</h2>
+            </div>
+
+            <div class="github-readme-stats">
+
+                <!-- GitHub Stats Card -->
+                <div class="stat-card">
+                    <img src="https://github-readme-stats.vercel.app/api?username=YoussefDevPro&theme=vue-dark&show_icons=true&hide_border=true&count_private=true" 
+                         alt="YoussefDevPro's Stats">
+                </div>
+
+                <!-- Streak Stats Card -->
+                <div class="stat-card">
+                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=YoussefDevPro&theme=vue-dark&hide_border=true" 
+                         alt="GitHub Streak">
+                </div>
+
+                <!-- Most Used Languages Card -->
+                <div class="stat-card">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YoussefDevPro&theme=vue-dark&hide_border=true&layout=compact" 
+                         alt="Most Used Languages">
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
+    <!-- Spacer to Prevent Overlap -->
+    <div style="height: 70px;"></div>
+
+    <!-- Scripts -->
     <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
-<!-- if u read this, that mean that ur inspecting, if it's right, stop inspecting, but if ur reading this bc ur in my github repo, please............................................................................................................................................Gizzy love french -->
+
 </html>

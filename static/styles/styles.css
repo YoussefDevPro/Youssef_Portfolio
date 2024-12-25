@@ -1,0 +1,534 @@
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* DOCK SECTION !!! */
+
+.dock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20000px;
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: auto;
+    max-width: 100%;
+    z-index: 1000;
+    opacity: 0;
+    animation: dockSlideIn 0.8s ease-out forwards, dockFloat 3s ease-in-out infinite;
+}
+
+/* Animation pour l'apparition */
+@keyframes dockSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Animation pour le flottement */
+@keyframes dockFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0); /* Position initiale */
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px); /* Légère montée */
+    }
+}
+
+
+.dock-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    border-radius: 20000px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 2px;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    opacity: 0; /* INVISIBILITY */
+    transform: translateY(20px);
+    animation: itemAppear 0.4s ease forwards, itemFloat 3s ease-in-out infinite;
+}
+
+/* Animation pour l'apparition des items */
+@keyframes itemAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation pour le flottement des items */
+@keyframes itemFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Délais d'apparition pour chaque item */
+.dock-item:nth-child(1) {
+    animation-delay: 0.1s, 0.2s; /* Apparaît en premier avec un léger décalage */
+}
+
+.dock-item:nth-child(2) {
+    animation-delay: 0.3s, 0.4s;
+}
+
+.dock-item:nth-child(3) {
+    animation-delay: 0.5s, 0.6s;
+}
+
+.dock-item:nth-child(4) {
+    animation-delay: 0.7s, 0.8s;
+}
+
+.dock-item:nth-child(5) {
+    animation-delay: 0.9s, 1s;
+}
+
+.dock-item:hover {
+    width: 50;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dock-icon {
+    width: 35px;
+    height: 35px;
+    filter: invert(1) brightness(100%) contrast(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.dock-item.clicked {
+    width: 80px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dock-item:active .dock-text,
+.dock-item.clicked .dock-text {
+    opacity: 1;
+    transform: translateY(0);
+    width: 50px; 
+    height: auto;
+}
+
+.dock-item:active .dock-icon,
+.dock-item.clicked .dock-icon {
+    transform: scale(1.2);
+}
+
+.dock-item:not(.clicked) {
+    width: 40px;
+}
+
+/* also i'l add an animation */
+@keyframes itemAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.dock-item:nth-child(1) {
+    animation-delay: 1s; 
+}
+.dock-item:nth-child(2) {
+    animation-delay: 1.2s; 
+}
+.dock-item:nth-child(3) {
+    animation-delay: 1.4s; 
+}
+.dock-item:nth-child(4) {
+    animation-delay: 1.6s; 
+}
+.dock-item:nth-child(5) {
+    animation-delay: 1.8s; 
+}
+
+/* so satisfaying, rate this dock >:3 */
+
+/* now, the.....content section, yeah, will going to do a div.content whit a js script to change the content of the content */
+
+/* CONTENT SECTION, HEELL YEAH ! */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptation aux écrans */
+    gap: 20px;
+    padding: 15px;
+}
+
+.project {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    transition: transform 0.3s ease, background 0.3s ease;
+    
+    perspective: 1000px; /* Ajoute une perspective pour les enfants */
+}
+
+.project:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.project img {
+    width: 100%;
+    max-width: 250px; /* Limite de largeur */
+    height: auto; /* Conserve les proportions */
+    border-radius: 5px; /* Coins arrondis pour l'image */
+    transition: transform 0.6s ease; /* Transition fluide */
+    transform-origin: center; /* Définit le centre comme origine */
+    transform: rotateY(0); /* Par défaut, aucune rotation */
+}
+
+.project:hover img {
+    transform: rotateY(10deg) scale(1.02); /* Ajoute une rotation 3D au survol */
+}
+
+.project-info h1 {
+    padding-top: 10px;
+}
+
+/* Délais d'animation pour chaque projet */
+.project:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.project:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.project:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.project:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.project:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.project:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
+    }
+
+    .project img {
+        max-width: 100%; /* L'image prend toute la largeur */
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Animation pour les titres (h1) */
+.content h1 {
+    opacity: 0;
+    transform: translateY(20px);
+    margin-top: 0;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Animation pour les paragraphes (p) */
+.content p {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Pour que les animations commencent à des moments différents */
+.content h1:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.content p:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.content p:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.content p:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.content p:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.content p:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* style for my github stat >w< */
+
+/* Section principale */
+#github-stats {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
+    font-family: 'Arial', sans-serif;
+    animation: itemFloat 3s infinite ease-in-out;
+    background: #121212; /* Fond sombre élégant */
+}
+
+/* En-tête GitHub avec photo et nom */
+.github-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease forwards;
+}
+
+#github-pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+    animation: itemFloat 3s infinite;
+}
+
+
+#github-username {
+    font-size: 1.8rem;
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+/* Statistiques */
+.github-readme-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: itemFloat 3s infinite ease-in-out;
+}
+
+.float {
+    animation: itemFloat 1s infinite ease-in-out;
+}
+
+.stat-card:nth-child(1) {
+    animation-delay: 1s;
+}
+.stat-card:nth-child(2) {
+    animation-delay: 1.4s;
+}
+.stat-card:nth-child(3) {
+    animation-delay: 1.8s;
+}
+
+
+
+.stat-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    #github-stats {
+        padding: 15px;
+    }
+
+    .github-readme-stats {
+        grid-template-columns: 1fr; /* Une seule colonne sur les écrans étroits */
+    }
+
+    .stat-card {
+        padding: 10px;
+    }
+
+    #github-username {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #github-pfp {
+        width: 100px;
+        height: 100px;
+    }
+
+    #github-username {
+        font-size: 1.2rem;
+    }
+}
+
+/* Style pour la carte des langages */
+.stat-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+.stat-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* NOW TIME FOR THE MOST IMPORTANT THING WE NEED TO DO IN ANY CASE */
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: #ffffff 0 0 1px;
+}
+
+/* AND */
+
+p.text {
+    width: 45%; 
+    margin: auto;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+/* Adaptation pour les écrans de téléphone */
+@media (max-width: 768px) {
+    p.text {
+        width: 90%; 
+        padding: 10px; /* Ajuster le padding si nécessaire */
+    }
+}
+
