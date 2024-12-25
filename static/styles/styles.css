@@ -493,6 +493,9 @@ body {
 .stat-card:nth-child(8) {
     animation-delay: 2.8s;
 }
+.stat-card:nth-child(9) {
+    animation-delay: 3s;
+}
 
 
 
