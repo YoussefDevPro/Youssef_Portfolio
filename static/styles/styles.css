@@ -173,6 +173,20 @@ body {
     animation-delay: 1.8s; 
 }
 
+@media (max-width: 768px) {
+    .dock-item {
+        width: 27px;
+        height: 27px;
+        padding: 8px;
+    }
+
+    .dock-icon  {
+        width: 27px;
+        height: 27px;
+    }
+}
+
+
 /* so satisfaying, rate this dock >:3 */
 
 /* now, the.....content section, yeah, will going to do a div.content whit a js script to change the content of the content */
@@ -207,6 +221,13 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+    .content {
+        padding: 9px; 
+    }
+}
+
 
 .content.fade-out {
     opacity: 0;
@@ -305,6 +326,7 @@ body {
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
+        padding: 0;
     }
 
     .project img {
