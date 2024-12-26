@@ -254,15 +254,16 @@ body {
 }
 .projects-grid {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* Les projets s'affichent en colonne */
+    gap: 20px; /* Espacement entre les projets */
     padding: 15px;
-    justify-content: center; /* Centrer verticalement */
-    align-items: center; /* Centrer horizontalement */
-    width: 100%; /* Prendre toute la largeur disponible */
+    justify-items: center; /* Centrer horizontalement */
+    align-items: center; /* Centre les projets */
+    width: 100%; /* Prend toute la largeur disponible */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
-
 .project {
+    position: relative; /* Nécessaire pour le badge GitHub */
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -277,16 +278,15 @@ body {
     animation: fadeInUp 0.5s ease forwards;
     transition: transform 0.3s ease, background 0.3s ease;
     perspective: 1000px;
-    width: 100%; /* Prend toute la largeur possible */
-    max-width: 750px; /* Limite la largeur des projets */
-    margin: 0 auto; /* Centrer l'élément horizontalement */
-    box-sizing: border-box; /* Inclure le padding dans le calcul de la largeur */
+    width: 100%; /* Prend toute la largeur disponible */
+    max-width: 750px; /* Limite la largeur sur grands écrans */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    margin: 0 auto; /* Centre horizontalement */
 }
-
 
 .project img {
     width: auto;
-    max-width: 200px;
+    max-width: 150px; /* Taille de l'image */
     height: auto;
     border-radius: 5px;
     margin-right: 15px;
@@ -297,6 +297,7 @@ body {
 .project-info {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Espacement équitable */
 }
 
 .project-info h1 {
@@ -309,13 +310,34 @@ body {
     text-align: left;
 }
 
+
 .project:hover {
     transform: scale(1.05);
     background: rgba(255, 255, 255, 0.2);
 }
-
 .project:hover img {
-    transform: rotateY(10deg) scale(1.02);
+    transform: rotateY(0deg) scale(1.02);
+}
+
+
+/* Badge GitHub */
+.project::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png') no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project:hover::after {
+    transform: scale(1.1);
 }
 
 /* Délais d'animation pour chaque projet */
@@ -342,35 +364,27 @@ body {
 .project:nth-child(6) {
     animation-delay: 0.5s;
 }
-
-/* Adaptation pour les écrans de petite taille */
 @media (max-width: 768px) {
     .projects-grid {
-        justify-content: flex-start; /* Placer les éléments en haut mais toujours centrés */
-        align-items: center; /* Centrer horizontalement */
-        width: 100%; /* S'assure que la grille prend toute la largeur */
-        padding: 10px; /* Réduit les espacements autour des projets */
+        padding: 10px;
     }
 
     .project {
-        flex-direction: column; /* Aligne l'image et le texte verticalement */
-        align-items: center; /* Centre les projets */
-        width: 90%; /* Réduit légèrement la largeur des projets */
-        max-width: none; /* Enlève la limite de largeur */
-        padding: 10px; /* Réduit le padding */
+        flex-direction: column; /* Vertical pour les petits écrans */
+        align-items: center; /* Centre le contenu */
+        padding: 10px;
+        max-width: 100%; /* Prend toute la largeur */
     }
 
     .project img {
-        margin-right: 0;
-        margin-bottom: 15px; /* Espace entre l'image et le texte */
-        max-width: 150px; /* Réduit la taille de l'image */
+        margin-bottom: 10px;
+        max-width: 120px; /* Taille réduite de l'image */
     }
 
     .project-info {
-        text-align: center; /* Centrer le texte */
+        text-align: center; /* Centre le texte */
     }
 }
-
 
 /* Animation Keyframes */
 @keyframes fadeInUp {
