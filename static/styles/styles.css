@@ -454,6 +454,7 @@ body {
     animation-delay: 0.7s;
 }
 
+
 .content p:nth-child(8) {
     animation-delay: 0.8s;
 }
@@ -664,4 +665,39 @@ p.text {
     vertical-align: middle; /* Aligne avec le texte */
     margin-right: 8px; /* Ajoute un espace entre le logo et le nom */
     filter: invert(100%); /* Transforme le logo en blanc */
+}
+
+.lanyardImg {
+    display: inline-block;
+    width: 100%; /* Prend toute la largeur du conteneur */
+    max-width: 600px; /* Limite la largeur sur les grands écrans */
+    height: auto;
+    margin: 0 auto;
+    text-align: center; /* Centre l'élément */
+    overflow: hidden; /* Pas de bordures arrondies */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre autour du lanyard */
+}
+
+.lanyardMainImage {
+    width: 100%; /* Prend toute la largeur du conteneur */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .lanyardImg {
+        width: 100%; /* S'adapte à la largeur de l'écran plus petit */
+        max-width: 100%; /* Pas de limite de largeur sur les petits écrans */
+    }
+}
+
+.arch-linux-logo {
+    width: 30px;  /* Ajuste la taille selon ce que tu préfères */
+    height: auto;
+    margin: 0 5px;  /* Un peu d'espace de chaque côté */
+    vertical-align: middle;  /* Aligne l'image avec le texte */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;  /* Transition pour un effet fluide */
+}
+
+.arch-linux-logo:hover {
+    transform: scale(1.1);  /* Zoom léger au survol */
 }
