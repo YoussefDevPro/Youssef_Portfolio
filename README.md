@@ -20,5 +20,3 @@ Have any questions or want to collaborate? You can find me on Discord:
 
 ---
 
-Thank you for visiting my portfolio! 😊  
-Stay curious, and let's build amazing things together! ✨
