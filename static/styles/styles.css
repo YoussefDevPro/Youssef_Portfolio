@@ -1,22 +1,22 @@
 :root {
-    --background-color: #1a1826;
-    --primary-text-color: #f5e0dc;
-    --secondary-text-color: #f2cdcd;
-    --dock-background: rgba(255, 185, 150, 0.15);
-    --dock-hover-background: rgba(255, 185, 150, 0.2);
-    --item-hover-background: rgba(255, 185, 150, 0.2);
+    --background-color: #2e2e3e; /* Fond sombre avec une teinte bleue */
+    --primary-text-color: #c0caf5; /* Texte principal en bleu clair */
+    --secondary-text-color: #a6adc8; /* Texte secondaire en bleu atténué */
+    --dock-background: rgba(75, 0, 130, 0.15); /* Violet bleu foncé */
+    --dock-hover-background: rgba(75, 0, 130, 0.2); /* Légèrement plus opaque */
+    --item-hover-background: rgba(75, 0, 130, 0.2);
     --project-background: rgba(75, 0, 130, 0.15); /* Violet bleu foncé */
     --project-hover-background: rgba(75, 0, 130, 0.25); /* Violet bleu foncé */
-    --github-stats-background: #1c1b26;
+    --github-stats-background: #2c1f2d; /* Fond riche de type Mocha */
     --badge-background: #f5e0dc;
-    --mauve: #cba6f7;
-    --pink: #f5a8b0;
+    --mauve: #cba6f7; /* Lavande clair */
+    --pink: #f5a8b0; /* Rose doux */
     --flamingo: #f38ba8;
     --lavender: #b4befe;
-    --blue: #89dceb;
+    --blue: #1e66f5; /* Bleu vif */
     --green: #a6e3a1;
     --yellow: #f9e2af;
-    --red: #f38ba8;
+    --red: #f38ba8; /* Rouge doux */
 }
 
 
