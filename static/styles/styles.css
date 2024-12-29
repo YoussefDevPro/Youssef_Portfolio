@@ -2,21 +2,17 @@
     --background-color: #2e2e3e; /* Fond sombre avec une teinte bleue */
     --primary-text-color: #c0caf5; /* Texte principal en bleu clair */
     --secondary-text-color: #a6adc8; /* Texte secondaire en bleu atténué */
-    --dock-background: rgba(75, 0, 130, 0.15); /* Violet bleu foncé */
-    --dock-hover-background: rgba(75, 0, 130, 0.2); /* Légèrement plus opaque */
-    --item-hover-background: rgba(75, 0, 130, 0.2);
-    --project-background: rgba(75, 0, 130, 0.15); /* Violet bleu foncé */
-    --project-hover-background: rgba(75, 0, 130, 0.25); /* Violet bleu foncé */
+    --dock-background: rgba(56, 74, 142, 0.15); /* Bleu plus profond pour le dock */
+    --dock-hover-background: rgba(56, 74, 142, 0.2); /* Légèrement plus opaque */
+    --item-hover-background: rgba(56, 74, 142, 0.2); /* Survol des éléments avec une teinte bleue */
+    --project-background: rgba(56, 74, 142, 0.15); /* Fond bleu profond pour les projets */
+    --project-hover-background: rgba(56, 74, 142, 0.25); /* Bleu foncé au survol des projets */
     --github-stats-background: #2c1f2d; /* Fond riche de type Mocha */
-    --badge-background: #f5e0dc;
-    --mauve: #cba6f7; /* Lavande clair */
-    --pink: #f5a8b0; /* Rose doux */
-    --flamingo: #f38ba8;
-    --lavender: #b4befe;
-    --blue: #1e66f5; /* Bleu vif */
-    --green: #a6e3a1;
-    --yellow: #f9e2af;
-    --red: #f38ba8; /* Rouge doux */
+    --badge-background: #f5e0dc; /* Badge crème douce */
+    --accent-color: #7db9ff; /* Bleu clair pour les accents */
+    --highlight-color: #a1c4fd; /* Bleu clair pour attirer l'attention */
+    --error-color: #f28f8f; /* Rouge doux pour les erreurs */
+    --success-color: #98c379; /* Vert pastel pour les succès */
 }
 
 
