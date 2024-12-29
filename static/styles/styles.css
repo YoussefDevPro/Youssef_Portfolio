@@ -1,5 +1,27 @@
+:root {
+    --background-color: #1a1826;
+    --primary-text-color: #f5e0dc;
+    --secondary-text-color: #f2cdcd;
+    --dock-background: rgba(255, 185, 150, 0.15);
+    --dock-hover-background: rgba(255, 185, 150, 0.2);
+    --item-hover-background: rgba(255, 185, 150, 0.2);
+    --project-background: rgba(75, 0, 130, 0.15); /* Violet bleu foncé */
+    --project-hover-background: rgba(75, 0, 130, 0.25); /* Violet bleu foncé */
+    --github-stats-background: #1c1b26;
+    --badge-background: #f5e0dc;
+    --mauve: #cba6f7;
+    --pink: #f5a8b0;
+    --flamingo: #f38ba8;
+    --lavender: #b4befe;
+    --blue: #89dceb;
+    --green: #a6e3a1;
+    --yellow: #f9e2af;
+    --red: #f38ba8;
+}
+
+
 body {
-    background-color: black;
+    background-color: var(--background-color);
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
@@ -7,6 +29,7 @@ body {
 
 
 /* DOCK SECTION !!! */
+
 
 .dock {
     position: fixed;
@@ -16,7 +39,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--dock-background);
     backdrop-filter: blur(10px);
     border-radius: 20000px;
     padding: 5px;
@@ -114,7 +137,7 @@ body {
 
 .dock-item:hover {
     width: 50;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--item-hover-background);
 }
 
 .dock-icon {
@@ -263,14 +286,14 @@ body {
     box-sizing: border-box; /* Inclut le padding dans la largeur */
 }
 .project {
-    position: relative; /* Nécessaire pour le badge GitHub */
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--project-background);
     padding: 15px;
     border-radius: 10px;
-    color: white;
+    color: var(--primary-text-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     opacity: 0;
@@ -278,10 +301,10 @@ body {
     animation: fadeInUp 0.5s ease forwards;
     transition: transform 0.3s ease, background 0.3s ease;
     perspective: 1000px;
-    width: 100%; /* Prend toute la largeur disponible */
-    max-width: 820px; /* Limite la largeur sur grands écrans */
-    box-sizing: border-box; /* Inclut le padding dans la largeur */
-    margin: 0 auto; /* Centre horizontalement */
+    width: 100%;
+    max-width: 820px;
+    box-sizing: border-box;
+    margin: 0 auto;
 }
 
 .project img {
@@ -310,10 +333,9 @@ body {
     text-align: left;
 }
 
-
 .project:hover {
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--project-hover-background);
 }
 .project:hover img {
     transform: rotateY(0deg) scale(1.02);
@@ -469,14 +491,15 @@ body {
 
 /* style for my github stat >w< */
 /* Section principale */
+
 #github-stats {
-    color: white;
+    color: var(--primary-text-color);
     text-align: center;
     padding: 20px;
     border-radius: 30px;
     font-family: 'Arial', sans-serif;
     animation: itemFloat 3s infinite ease-in-out;
-    background: #121212; /* Fond sombre élégant */
+    background: var(--github-stats-background);
 }
 
 /* En-tête GitHub avec photo et nom */
@@ -653,10 +676,10 @@ p.text {
 
 
 .badge {
-    border-radius: 20px; /* Arrondit le badge */
-    padding: 1px; /* Ajoute un espace intérieur pour équilibrer */
-    background-color: white; /* Ajoute un fond pour contraster */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Ajoute un effet d'ombre */
+    border-radius: 20px;
+    padding: 1px;
+    background-color: var(--badge-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .discord-logo {
@@ -675,7 +698,7 @@ p.text {
     margin: 0 auto;
     text-align: center; /* Centre l'élément */
     overflow: hidden; /* Pas de bordures arrondies */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre autour du lanyard */
+
 }
 
 .lanyardMainImage {
