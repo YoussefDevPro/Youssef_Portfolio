@@ -7,10 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = link.getAttribute("data-target");
 
             sections.forEach(section => {
-                section.classList.remove("active");
+                section.classList.remove("active", "active-home"); // On enlève les deux classes possibles
             });
 
-            document.getElementById(target).classList.add("active");
+            const targetSection = document.getElementById(target);
+            if (target === "home") {
+                targetSection.classList.add("active-home");
+            } else {
+                targetSection.classList.add("active");
+            }
         });
     });
 });

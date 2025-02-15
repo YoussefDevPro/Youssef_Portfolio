@@ -39,7 +39,7 @@ body {
 }
 
 .sections {
-    width: 250px; /* Lien encore plus large */
+    width: 200px; /* Lien encore plus large */
     background: var(--border);
     display: flex;
     flex-direction: column;
@@ -84,7 +84,6 @@ body {
 
 .content {
     flex: 1;
-    padding: 20px;
     overflow-y: auto;
     background: var(--bg);
     color: var(--text);
@@ -98,6 +97,10 @@ body {
     display: block;
 }
 
+.section.active-home {
+    display: flex;
+}
+
 h1 {
     margin-bottom: 20px;
     color: var(--accent);  /* Couleur des titres */
@@ -108,6 +111,27 @@ p {
     color: var(--text);
     line-height: 1.6;
     font-size: 1.1rem;
+}
+#home {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    background: none; /* Évite un second fond */
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../static/images/background.png") center/cover no-repeat;
+    opacity: 0.05;
+    z-index: -1; /* Pour éviter qu'il couvre le contenu */
 }
 
 .github-icon {
@@ -123,4 +147,38 @@ p {
 
 .github-icon:active {
     transform: scale(0.95);
+}
+
+img.unique-image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 40px;
+}
+.unique-info {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+.unique-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+.unique-links a:hover {
+    color: #ffffff;
+}
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    
+    border-radius: 15px; /* Arrondir les bords */
+    background: rgba(255, 255, 255, 0.01); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); /* Effet flou */
+    -webkit-backdrop-filter: blur(10px); /* Pour compatibilité Safari */
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optionnel : petite ombre */
 }
