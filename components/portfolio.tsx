@@ -13,7 +13,7 @@ export default function Portfolio() {
 
   return (
     <div className="overflow-hidden absolute inset-0 flex items-center justify-center p-4 md:p-8">
-      <div className="glass-container relative flex h-[90vh] w-full max-w-5xl rounded-2xl shadow-xl bg-opacity-30">
+      <div className="glass-container relative flex h-[90vh] w-full max-w-6xl rounded-2xl shadow-xl bg-opacity-30">
         {/* Mobile Menu Button - Only visible on mobile screens and positioned on the right */}
         <div className="fixed top-4 right-4 z-20 md:hidden">
           <button 
