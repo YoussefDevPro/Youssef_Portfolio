@@ -273,7 +273,7 @@ function ProjectsSection() {
     {
       title: "Mr Beat",
       description: "Make some beats 🎶 and even add your own sound effects. This project uses Audiostream.",
-      technologies: ["JavaScript", "Audiostream"],
+      technologies: ["Python", "Audiostream"],
       image: "/mrbeat_project.jpg",
       link: "https://github.com/YoussefDevPro/MrBeat",
     },
