@@ -189,6 +189,12 @@ function AboutSection() {
           period="2022 - 2024"
           description="Now, I'm really into coding and have been diving deeper into programming. I've been learning more and more every day, with languages like Rust and tools like Tauri, and I'm still learning and growing."
         />
+                <ExperienceCard
+          title="student -_-"
+          company=""
+          period="4/3/2025"
+          description="revived the thinkpad yeah !"
+        />
       </div>
     </div>
   )
@@ -310,9 +316,14 @@ function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-                <button className="mt-4 rounded-xl bg-mauve px-4 py-2 text-sm font-medium text-base transition-colors hover:bg-lavender">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 rounded-xl bg-mauve px-4 py-2 text-sm font-medium text-base transition-colors hover:bg-lavender"
+                >
                   View Project
-                </button>
+                </a>
               </div>
             </div>
           </div>
