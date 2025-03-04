@@ -316,14 +316,12 @@ function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => window.open(project.link, "_blank")}
                   className="mt-4 rounded-xl bg-mauve px-4 py-2 text-sm font-medium text-base transition-colors hover:bg-lavender"
                 >
                   View Project
-                </a>
+                </button>
               </div>
             </div>
           </div>
