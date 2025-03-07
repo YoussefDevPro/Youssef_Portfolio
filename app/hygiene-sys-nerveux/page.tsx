@@ -1,157 +1,151 @@
-'use client';
+"use client"
 
-import { useState, useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { useState, useEffect } from "react"
+import { ArrowLeft, ArrowRight, Home } from "lucide-react"
+import AnimatedBackground from "@/components/animated-background"
 
-interface Slide {
-  title: string;
-  content: string;
-  modelPath: string;
+import Link from "next/link"
+
+interface SlideContent {
+  title: string
+  content: string
+  image: string
+  isVideo?: boolean
 }
 
-const slides: Slide[] = [
-  {
-    title: "L'impact de l'alcool sur le système nerveux",
-    content: "L'alcool peut gravement endommager votre système nerveux, affectant la mémoire, la coordination et le jugement.",
-    modelPath: "/models/alcool.glb"
-  },
-  {
-    title: "Les effets du tabac sur le cerveau",
-    content: "Le tabagisme peut réduire l'oxygénation du cerveau et augmenter les risques de maladies neurologiques.",
-    modelPath: "/models/cigar.glb"
-  },
-  {
-    title: "Maintenir un cerveau sain",
-    content: "Une bonne hygiène du système nerveux implique une alimentation équilibrée, du sommeil régulier et de l'exercice physique.",
-    modelPath: "/models/brain.glb"
-  }
-];
-
 export default function HygieneSystemeNerveux() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const modelRef = useRef<THREE.Group | null>(null);
-  const controlsRef = useRef<OrbitControls | null>(null);
+  const slides: SlideContent[] = [
+    {
+      title: "Introduction au Système Nerveux",
+      content: "Le système nerveux est le réseau de cellules spécialisées qui coordonnent les actions d'un organisme et transmettent des signaux entre ses différentes parties. Il est composé du cerveau, de la moelle épinière et des nerfs périphériques.",
+      image: "models/tpe-of-danger.png",
+    },
+    {
+      title: "Effets de l'Alcool",
+      content: "L'alcool est un dépresseur du système nerveux central. Sa consommation excessive peut entraîner des dommages neurologiques, affecter la mémoire et réduire les capacités cognitives à long terme.",
+      image: "models/alcool.png",
+    },
+    {
+      title: "Effets du Tabac",
+      content: "Le tabac contient de la nicotine qui stimule temporairement le système nerveux mais peut causer une dépendance. La consommation de tabac réduit l'oxygénation du cerveau et augmente les risques de maladies neurologiques.",
+      image: "models/tpe-of-danger.png",
+      isVideo: false,
+    },
+  ]
 
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
+  }
+
+  // Add keyboard event listener for arrow key navigation
   useEffect(() => {
-    if (!containerRef.current) return;
-
-    // Scene setup
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      containerRef.current.clientWidth / containerRef.current.clientHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 5;
-    cameraRef.current = camera;
-
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
-    renderer.setClearColor(0x000000, 0);
-    containerRef.current.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
-
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
-    scene.add(directionalLight);
-
-    // Controls
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controlsRef.current = controls;
-
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-      if (controlsRef.current) {
-        controlsRef.current.update();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") {
+        nextSlide()
+      } else if (event.key === "ArrowLeft") {
+        prevSlide()
       }
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    // Cleanup
-    return () => {
-      renderer.dispose();
-      containerRef.current?.removeChild(renderer.domElement);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!sceneRef.current) return;
-
-    // Remove previous model
-    if (modelRef.current) {
-      sceneRef.current.remove(modelRef.current);
     }
 
-    // Load new model
-    const loader = new GLTFLoader();
-    loader.load(slides[currentSlide].modelPath, (gltf) => {
-      const model = gltf.scene;
-      model.scale.set(2, 2, 2);
-      sceneRef.current?.add(model);
-      modelRef.current = model;
-    });
-  }, [currentSlide]);
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+    window.addEventListener("keydown", handleKeyDown)
+    
+    // Clean up the event listener when component unmounts
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, []) // Empty dependency array means this effect runs once on mount
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-700 text-white p-8">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Hygiène du Système Nerveux
-        </h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div
-            ref={containerRef}
-            className="aspect-square bg-gray-800 rounded-lg overflow-hidden"
-          />
-          
-          <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-2xl font-semibold">{slides[currentSlide].title}</h2>
-            <p className="text-lg">{slides[currentSlide].content}</p>
-            
-            <div className="flex justify-between mt-8">
-              <button
-                onClick={handlePrevSlide}
-                className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+    <main className="relative h-screen w-screen overflow-hidden bg-base">
+      <AnimatedBackground />
+      
+      <div className="overflow-hidden absolute inset-0 flex items-center justify-center p-2 md:p-4">
+        <div className="glass-container relative flex h-[95vh] w-full max-w-7xl rounded-2xl shadow-xl bg-opacity-30">
+          {/* Home button in top right */}
+          <div className="absolute top-4 right-4 z-20">
+            <Link href="/">
+              <button 
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-surface0 text-lavender transition-colors hover:bg-lavender hover:text-base"
+                aria-label="Return to home"
               >
-                Précédent
+                <Home size={26} />
               </button>
-              <button
-                onClick={handleNextSlide}
-                className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+            </Link>
+          </div>
+          
+          {/* Slide content */}
+          <div className="w-full h-full p-6 md:p-10 flex flex-col">
+            <h1 className="text-4xl font-bold text-lavender mb-10 text-center">
+              {slides[currentSlide].title}
+            </h1>
+            
+            <div className="flex-1 flex flex-col md:flex-row gap-10">
+              {/* Text content on the left */}
+              <div className="flex-1 glass-panel rounded-xl p-8 bg-opacity-50 flex items-center">
+                <p className="text-text text-xl">
+                  {slides[currentSlide].content}
+                </p>
+              </div>
+              
+              {/* Image/video/3D model on the right */}
+              <div className="flex-1 glass-panel rounded-xl p-8 bg-opacity-50 flex items-center justify-center">
+                {slides[currentSlide].isVideo ? (
+                  <video 
+                    src={slides[currentSlide].image} 
+                    className="max-w-full max-h-full rounded-lg" 
+                    controls 
+                    autoPlay 
+                    loop 
+                    muted
+                  />
+                ) : (
+                  <img 
+                    src={slides[currentSlide].image} 
+                    alt={slides[currentSlide].title}
+                    className="max-w-full max-h-full rounded-lg object-contain" 
+                  />
+                )}
+              </div>
+            </div>
+            
+            {/* Navigation arrows */}
+            <div className="flex justify-between mt-8">
+              <button 
+                onClick={prevSlide}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-surface0 text-lavender transition-colors hover:bg-lavender hover:text-base"
+                aria-label="Previous slide"
               >
-                Suivant
+                <ArrowLeft size={24} />
+              </button>
+              
+              <div className="flex gap-2">
+                {slides.map((_, index) => (
+                  <button 
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-3 w-3 rounded-full ${currentSlide === index ? 'bg-lavender' : 'bg-surface0'}`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button 
+                onClick={nextSlide}
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-surface0 text-lavender transition-colors hover:bg-lavender hover:text-base"
+                aria-label="Next slide"
+              >
+                <ArrowRight size={24} />
               </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </main>
+  )
 }
