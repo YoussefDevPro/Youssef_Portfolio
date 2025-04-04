@@ -127,13 +127,15 @@ function HomeSection() {
         <h1 className="text-4xl font-bold text-lavender">Youssef Lmouden</h1>
         <h2 className="text-xl text-mauve">Full Stack Developer</h2>
         <p className="max-w-lg text-text">
-        a tech enthusiast who loves building things and exploring new technologies. Rust 🦀 is my favorite language! I have solid skills in creating well-designed and efficient websites, always striving to improve and learn more.
+          a tech enthusiast who loves building things and exploring new technologies. Rust 🦀 is my favorite language! 
+          I have solid skills in creating well-designed and efficient websites, always striving to improve and learn more.
         </p>
         <div className="flex gap-4">
-          <SocialButton icon={<Github />} href="https://github.com" label="GitHub" />
+          <SocialButton icon={<Github />} href="https://github.com/YoussefDevPro" label="GitHub" />
         </div>
       </div>
 
+      {/* ModuFlow Project */}
       <div className="glass-panel rounded-xl p-6 bg-opacity-50">
         <h2 className="mb-4 text-2xl font-bold text-lavender">Upcoming Project</h2>
         <div className="aspect-video w-full overflow-hidden rounded-lg bg-surface0">
@@ -143,20 +145,42 @@ function HomeSection() {
             className="h-full w-full object-cover rounded-xl"
           />
         </div>
-        <h3 className="mt-4 text-xl font-semibold text-mauve">MuduFlow</h3>
+        <h3 className="mt-4 text-xl font-semibold text-mauve">ModuFlow</h3>
         <p className="mt-2 text-text">
-        ModuFlow is a development tool designed to enhance the Modu programming experience by providing an intelligent assistant for error fixing and code suggestions, a smooth and efficient development environment, and seamless integration with other tools to optimize workflow. 
+          ModuFlow is a development tool designed to enhance the Modu programming experience by providing an intelligent assistant for error fixing and code suggestions, 
+          a smooth and efficient development environment, and seamless integration with other tools to optimize workflow.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <span className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">Rust</span>
-          <span className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">Tauri</span>
-          <span className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">HTML/CSS</span>
-          <span className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">TypeScript</span>
-          <span className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">bun</span>
+          {["Rust", "Tauri", "HTML/CSS", "TypeScript", "bun"].map((tech) => (
+            <span key={tech} className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">{tech}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* RustyBot Project */}
+      <div className="glass-panel rounded-xl p-6 bg-opacity-50">
+        <div className="aspect-video w-full overflow-hidden rounded-lg bg-surface0">
+          <img
+            src="/RustyBot.png"
+            alt="Featured Project"
+            className="h-full w-full object-cover rounded-xl"
+          />
+        </div>
+        <h3 className="mt-4 text-xl font-semibold text-mauve">RustyBot</h3>
+        <p className="mt-2 text-text">
+          RustyBot is a sleek tool that makes Discord bot development in Rust way easier. It comes with a beautiful terminal UI built with ratatui, 
+          and includes handy utilities to speed up your workflow.
+          <br />
+          build faster. code smarter. with RustyBot.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {["Rust", "ratatui", "poise", "serenity", "tokio"].map((tech) => (
+            <span key={tech} className="rounded-full bg-surface0 px-3 py-1 text-xs text-lavender">{tech}</span>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function AboutSection() {
